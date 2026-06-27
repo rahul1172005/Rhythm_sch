@@ -1,209 +1,561 @@
 .main {
-  background: var(--pop-yellow);
+  background: var(--light-bg);
   padding-top: 0;
+  overflow-x: hidden;
+}
+
+.sectionSubtitle {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 14px;
+  color: var(--secondary);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.sectionHeading {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 1.1;
+  color: var(--primary); /* High visibility colored headings */
+  margin-bottom: 25px;
 }
 
 /* Narrative Grid */
 .narrativeGrid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.1fr 1fr;
   align-items: center;
   gap: 60px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 968px) {
   .narrativeGrid {
     grid-template-columns: 1fr;
+    gap: 40px;
   }
 }
 
 .narrativeImage {
   position: relative;
+  transition: transform 0.3s ease;
+}
+
+.narrativeImage:hover {
+  transform: scale(1.02) rotate(1deg);
 }
 
 .narrativeContent p {
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 1.5;
+  color: var(--dark-text);
+}
+
+.aboutLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--pop-pink);
+  color: var(--deep-black);
+  padding: 12px 28px;
+  font-family: 'Poppins', sans-serif;
   font-weight: 700;
-  font-size: 24px;
-  line-height: 1.3;
+  font-size: 14px;
+  border-radius: 100px;
+  border: 2px solid var(--deep-black);
+  box-shadow: 3px 3px 0px var(--deep-black);
+  transition: all 0.2s ease;
 }
 
-/* Receipt Section */
-.receiptSection {
-  padding: 60px 0;
+.aboutLink:hover {
+  background: var(--pop-mint);
+  color: var(--deep-black);
+  transform: translateX(5px);
 }
 
-.receiptCircle {
-  width: 600px;
-  height: 600px;
-  border-radius: 50%;
-  border: var(--border-thick);
-  margin: 0 auto;
-  position: relative;
-  overflow: hidden;
+/* Why Choose Grid */
+.whyChooseGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+@media (max-width: 968px) {
+  .whyChooseGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 640px) {
-  .receiptCircle {
-    width: 350px;
-    height: 350px;
+  .whyChooseGrid {
+    grid-template-columns: 1fr;
   }
 }
 
-.receiptOverlay {
-  position: absolute;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.4);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.receiptPaper {
+.chooseCard {
+  border: var(--border-thick);
+  border-radius: var(--radius-lg);
+  padding: 30px;
+  box-shadow: var(--shadow-block);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   background: white;
-  width: 250px;
-  padding: 20px;
-  font-family: 'Courier New', Courier, monospace;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-  transform: rotate(-2deg);
-  text-align: center;
-  color: #333;
 }
 
-.receiptLogo {
-  font-family: 'Archivo Black', sans-serif;
-  font-size: 24px;
-  margin-bottom: 10px;
+.chooseCard:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 10px 10px 0px var(--primary);
+  background: #FAF8FF;
 }
 
-.receiptDivider {
-  border-bottom: 2px dashed #ccc;
-  margin: 10px 0;
+.chooseCard h3 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 22px;
+  margin-bottom: 12px;
+  color: var(--primary); /* Colored headings */
 }
 
-.receiptLine {
-  display: flex;
-  justify-content: space-between;
-  font-size: 12px;
-  margin-bottom: 5px;
+.chooseCard p {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.4;
+  color: var(--dark-text);
 }
 
-.receiptBarcode {
-  margin-top: 15px;
-  letter-spacing: 2px;
-}
-
-/* Catchy Headline */
-.catchyHeadline {
-  font-size: 100px;
-  line-height: 0.85;
-  text-align: center;
-}
-
-@media (max-width: 768px) {
-  .catchyHeadline {
-    font-size: 48px;
-  }
-}
-
-/* Editorial Grid */
-.editorialGrid {
+/* Programs Section */
+.programsGrid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 40px;
 }
 
 @media (max-width: 768px) {
-  .editorialGrid {
+  .programsGrid {
     grid-template-columns: 1fr;
   }
 }
 
-.editorialCard {
+.programCard {
   border: var(--border-thick);
+  border-radius: var(--radius-xl);
+  padding: 40px;
+  box-shadow: var(--shadow-block);
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  gap: 25px;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.cardHeader {
-  padding: 20px;
-  border-bottom: var(--border-thick);
+.programCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 12px 12px 0px var(--primary);
 }
 
-.cardHeader h3 {
-  font-size: 64px;
-  margin: 0;
-  min-height: 140px;
-  /* Consistent height for grid alignment */
+.progHeader {
   display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.progHeader h3 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 32px;
+  color: var(--primary);
+}
+
+.ageBadge {
+  background: white;
+  border: var(--border-thick);
+  padding: 6px 16px;
+  border-radius: 100px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.focusText {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 1.5;
+  color: var(--dark-text);
+}
+
+.enrollBtn {
+  background: var(--pop-orange);
+  color: var(--deep-black);
+  padding: 12px 30px;
+  border: var(--border-thick);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  border-radius: var(--radius-md);
+  box-shadow: 4px 4px 0px rgba(0,0,0,0.3);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.enrollBtn:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0px rgba(0,0,0,0.3);
+  background: var(--pop-mint);
+  color: var(--deep-black);
+}
+
+/* Learning Areas */
+.learningGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 968px) {
+  .learningGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .learningGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.learningCard {
+  border-radius: var(--radius-lg);
+  padding: 25px;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  box-shadow: 4px 4px 0px var(--deep-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80px;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.learningCard:hover {
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 6px 6px 0px var(--primary);
+}
+
+/* Daily Routine */
+.routineGrid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 60px;
   align-items: center;
 }
 
-.cardHeaderMeta {
-  display: flex;
-  justify-content: space-between;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 800;
-  font-size: 12px;
-  margin-top: 10px;
+@media (max-width: 968px) {
+  .routineGrid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
 }
 
-.cardImage {
-  position: relative;
-  height: 350px;
+.routineContent p {
+  font-family: 'Nunito', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.tableWrapper {
+  border: var(--border-thick);
+  border-radius: var(--radius-lg);
   overflow: hidden;
+  box-shadow: var(--shadow-block);
+  background: white;
 }
 
-/* Collage Poster */
-.collagePoster {
+.routineTable {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.routineTable th {
+  background: var(--deep-black);
+  color: white;
+  padding: 15px 20px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+}
+
+.routineTable td {
+  padding: 12px 20px;
+  border-bottom: 1px solid #eee;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  color: var(--dark-text);
+}
+
+.routineTable tr:last-child td {
+  border-bottom: none;
+}
+
+.routineTable tr:hover td {
+  background: #FAF8FF;
+  color: var(--primary);
+}
+
+.routineImage {
   position: relative;
+  transition: transform 0.3s ease;
+}
+
+.routineImage:hover {
+  transform: scale(1.02) rotate(-1deg);
+}
+
+/* Philosophy Box */
+.philosophyBox {
+  background: white;
+  border: var(--border-thick);
+  border-radius: var(--radius-xl);
+  padding: 60px 40px;
+  box-shadow: var(--shadow-block);
   text-align: center;
 }
 
-.polaroidGrid {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
-
-.polaroid {
-  background: white;
-  padding: 10px 10px 40px 10px;
-  border: 1px solid #ddd;
-  box-shadow: var(--shadow-soft);
-  transform: rotate(-3deg);
-}
-
-.polaroid:nth-child(2n) {
-  transform: rotate(4deg) translateY(-20px);
-}
-
-.interiorBadge {
-  background: var(--pop-mint);
-  border: var(--border-thick);
-  display: inline-block;
-  padding: 15px 40px;
-  border-radius: 100px;
-  font-family: 'Archivo Black', sans-serif;
+.philLead {
+  font-family: 'Poppins', sans-serif;
   font-size: 24px;
-  margin-top: -30px;
-  position: relative;
-  z-index: 5;
+  font-weight: 700;
+  max-width: 800px;
+  margin: 0 auto;
+  line-height: 1.3;
+  color: var(--primary);
 }
 
-/* Footer */
+.philChips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.philChip {
+  background: var(--light-bg);
+  border: var(--border-thick);
+  padding: 10px 25px;
+  border-radius: 100px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 3px 3px 0px var(--deep-black);
+  transition: all 0.2s ease;
+}
+
+.philChip:hover {
+  transform: scale(1.08);
+  box-shadow: 4px 4px 0px var(--primary);
+  background: white;
+}
+
+/* Admissions Steps */
+.stepsContainer {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 968px) {
+  .stepsContainer {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+}
+
+.stepCard {
+  background: white;
+  border: var(--border-thick);
+  padding: 25px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-block);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.stepCard:hover {
+  transform: translateY(-8px);
+  box-shadow: 8px 8px 0px var(--primary);
+  background: #FAF8FF;
+}
+
+.stepNum {
+  background: var(--secondary);
+  color: var(--deep-black);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 12px;
+  padding: 4px 12px;
+  border-radius: 4px;
+  border: 1.5px solid var(--deep-black);
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+.stepCard h3 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: var(--primary);
+}
+
+.stepCard p {
+  font-family: 'Nunito', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: #555;
+}
+
+/* Testimonials */
+.testimonialsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+@media (max-width: 768px) {
+  .testimonialsGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.testimonialCard {
+  background: white;
+  border: var(--border-thick);
+  padding: 35px;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-block);
+  transition: all 0.3s ease;
+}
+
+.testimonialCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 8px 8px 0px var(--primary);
+}
+
+.stars {
+  display: flex;
+  gap: 5px;
+  margin-bottom: 15px;
+}
+
+.testimonialCard p {
+  font-family: 'Nunito', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 15px;
+  font-style: italic;
+  color: var(--dark-text);
+}
+
+.testimonialCard strong {
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+/* FAQs */
+.faqLayout {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 60px;
+}
+
+@media (max-width: 968px) {
+  .faqLayout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.faqHeader p {
+  font-family: 'Nunito', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.faqList {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.faqItem {
+  border: var(--border-thick);
+  border-radius: var(--radius-lg);
+  background: white;
+  box-shadow: 4px 4px 0px var(--deep-black);
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.faqItem:hover {
+  box-shadow: 6px 6px 0px var(--primary);
+}
+
+.faqQuestion {
+  padding: 20px 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faqQuestion h3 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 18px;
+  margin: 0;
+  color: var(--primary);
+}
+
+.faqAnswer {
+  padding: 0 30px 20px 30px;
+}
+
+.faqAnswer p {
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #555;
+}
+
+/* Footer Section */
 .footer {
-  background: var(--pop-yellow);
+  background: var(--light-bg);
   padding: 100px 0 20px;
   border-top: var(--border-thick);
 }
 
 .footerMain {
   display: grid;
-  grid-template-columns: 1fr 1fr 2fr;
-  gap: 100px;
-  margin-bottom: 100px;
+  grid-template-columns: 1.2fr 1fr 1.5fr;
+  gap: 80px;
+  margin-bottom: 80px;
 }
 
 @media (max-width: 968px) {
@@ -214,34 +566,47 @@
 }
 
 .footerCol h4 {
-  font-size: 14px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: 16px;
   margin-bottom: 20px;
+  color: var(--primary);
 }
 
 .footerCol p {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-weight: 700;
-  font-size: 14px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1.6;
   margin-bottom: 10px;
+  color: var(--dark-text);
 }
 
 .footerLinks {
   display: flex;
   flex-direction: column;
-  gap: 5px;
-  margin-top: 20px;
+  gap: 10px;
 }
 
 .footerLinks a {
-  font-family: 'Archivo Black', sans-serif;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
   font-size: 14px;
+  color: var(--dark-text);
+  transition: color 0.2s ease;
+}
+
+.footerLinks a:hover {
+  color: var(--primary);
 }
 
 .footerLogo {
-  font-size: 240px;
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 180px;
   text-align: center;
   margin: 0;
   line-height: 0.8;
+  color: var(--primary);
 }
 
 .footerLogo span {
@@ -251,6 +616,6 @@
 
 @media (max-width: 968px) {
   .footerLogo {
-    font-size: 100px;
+    font-size: 80px;
   }
 }

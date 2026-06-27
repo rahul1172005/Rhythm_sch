@@ -1,14 +1,16 @@
 import type { Metadata } from "next";
 import "@/styles/globals.css";
 import { Toaster } from "react-hot-toast";
+import LoadingScreen from "@/components/LoadingScreen";
+import WhatsAppCTA from "@/components/WhatsAppCTA";
 
 export const metadata: Metadata = {
-  title: "Taste of Trio's | Legendry Trio Burgers & Street Food",
-  description: "Experience the power of Trio's. Trendy, bold, and delicious burgers, shawarmas, and more. Ordered fresh, delivered fast.",
+  title: "Rhythm Preschool | Where Every Little Step Creates a Bright Future",
+  description: "A nurturing preschool where children learn through play, creativity, exploration, and meaningful experiences in a safe and joyful environment.",
 };
 
-import { CartProvider } from "@/context/CartContext";
-import CartDrawer from "@/components/CartDrawer";
+import { AdmissionsProvider } from "@/context/AdmissionsContext";
+import AdmissionsDrawer from "@/components/AdmissionsDrawer";
 
 export default function RootLayout({
   children,
@@ -18,11 +20,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <CartProvider>
+        <LoadingScreen />
+        <AdmissionsProvider>
           {children}
-          <CartDrawer />
+          <AdmissionsDrawer />
           <Toaster position="bottom-right" />
-        </CartProvider>
+        </AdmissionsProvider>
+        <WhatsAppCTA />
       </body>
     </html>
   );

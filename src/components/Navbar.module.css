@@ -37,7 +37,7 @@
 }
 
 .navCenter a:hover {
-    color: var(--pop-orange);
+    color: var(--primary);
 }
 
 @media (max-width: 768px) {
@@ -53,16 +53,19 @@
 }
 
 .cartBtn {
-    background: var(--deep-black);
-    color: white;
+    background: var(--pop-orange);
+    color: var(--deep-black);
     padding: 10px 24px;
     border-radius: 100px;
     font-family: 'Archivo Black', sans-serif;
     font-size: 12px;
+    border: 2px solid var(--deep-black);
+    box-shadow: 2px 2px 0px var(--deep-black);
 }
 
 .cartBtn:hover {
-    background: var(--pop-orange);
+    background: var(--pop-mint);
+    color: var(--deep-black);
     transform: scale(1.05);
 }
 

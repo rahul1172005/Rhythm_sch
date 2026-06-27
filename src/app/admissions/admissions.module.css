@@ -1,0 +1,108 @@
+.main {
+    background: var(--light-bg);
+    padding-top: 0;
+    min-height: 100vh;
+}
+
+.header {
+    padding: 100px 0 60px;
+    text-align: center;
+    border-bottom: var(--border-thick);
+    background: var(--pop-yellow);
+}
+
+.title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 80px;
+    margin-bottom: 20px;
+    line-height: 1;
+}
+
+.title span {
+    font-size: 32px;
+    vertical-align: top;
+}
+
+@media (max-width: 968px) {
+    .title {
+        font-size: 56px;
+    }
+}
+
+.subtitle {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--dark-text);
+}
+
+.processContainer {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    position: relative;
+    padding: 20px 0;
+}
+
+.processStep {
+    background: white;
+    border: var(--border-thick);
+    border-radius: var(--radius-lg);
+    padding: 35px;
+    box-shadow: 6px 6px 0px var(--deep-black);
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    transition: transform 0.2s ease;
+}
+
+.processStep:hover {
+    transform: translateY(-3px);
+}
+
+@media (max-width: 640px) {
+    .processStep {
+        flex-direction: column;
+        gap: 15px;
+    }
+}
+
+.stepNumber {
+    background: var(--pop-orange);
+    color: var(--deep-black);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 24px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: var(--border-thick);
+    box-shadow: 3px 3px 0px var(--deep-black);
+    flex-shrink: 0;
+}
+
+.stepContent h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.stepContent p {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.5;
+    color: #555;
+}
+
+.ctaSection {
+    text-align: center;
+    margin-top: 60px;
+}

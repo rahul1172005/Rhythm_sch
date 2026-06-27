@@ -12,56 +12,57 @@ model User {
   email     String   @unique
   password  String
   name      String?
-  role      String   @default("ADMIN")
+  role      String   @default("ADMIN") // ADMIN, MANAGER, STAFF
   createdAt DateTime @default(now())
 }
 
-model Category {
-  id        String     @id @default(cuid())
-  name      String     @unique
-  items     MenuItem[]
+model Account {
+  id         String     @id @default(cuid())
+  familyName String
+  email      String     @unique
+  phone      String
+  address    String?
+  contacts   Contact[]
+  deals      Deal[]
+  activities Activity[]
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
 }
 
-model MenuItem {
+model Contact {
+  id         String   @id @default(cuid())
+  name       String
+  type       String   // PARENT, CHILD
+  birthDate  DateTime?
+  gender     String?
+  accountId  String
+  account    Account  @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+}
+
+model Deal {
+  id          String     @id @default(cuid())
+  title       String     // e.g. "Tommy's Nursery Admission"
+  childName   String
+  program     String     // PLAYGROUP, NURSERY, JUNIOR_KG, SENIOR_KG
+  stage       String     // BOOK_VISIT, MEET_EDUCATORS, APP_SUBMISSION, CONFIRMATION, WELCOME
+  status      String     @default("OPEN") // OPEN, WON, LOST
+  healthScore Int        @default(100)
+  accountId   String
+  account     Account    @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  activities  Activity[]
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+}
+
+model Activity {
   id          String   @id @default(cuid())
-  name        String
+  type        String   // CALL, EMAIL, MEETING, NOTE, SYSTEM
   description String
-  price       Float
-  imageUrl    String
-  categoryId  String
-  category    Category @relation(fields: [categoryId], references: [id])
-  isVeg       Boolean  @default(false)
-  isAvailable Boolean  @default(true)
-  isPopular   Boolean  @default(false)
+  accountId   String
+  account     Account  @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  dealId      String?
+  deal        Deal?    @relation(fields: [dealId], references: [id], onDelete: Cascade)
   createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
-}
-
-model Combo {
-  id          String   @id @default(cuid())
-  name        String
-  description String
-  price       Float
-  imageUrl    String
-  isActive    Boolean  @default(true)
-  discount    Float    @default(0)
-  createdAt   DateTime @default(now())
-}
-
-model Order {
-  id             String   @id @default(cuid())
-  orderNumber    String   @unique
-  customerName   String
-  phone          String
-  address        String
-  items          String   // JSON string of items ordered
-  subtotal       Float
-  deliveryCharge Float
-  tax            Float
-  total          Float
-  status         String   @default("NEW") // NEW, PREPARING, READY, OUT_FOR_DELIVERY, DELIVERED, CANCELLED
-  paymentMethod  String   @default("COD")
-  paymentStatus  String   @default("PENDING")
-  createdAt      DateTime @default(now())
-  updatedAt      DateTime @updatedAt
 }

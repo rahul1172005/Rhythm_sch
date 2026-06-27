@@ -1,0 +1,124 @@
+.overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 2000;
+}
+
+.drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 500px;
+    background: var(--light-bg);
+    z-index: 2001;
+    border-left: var(--border-thick);
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 500px) {
+    .drawer {
+        width: 100%;
+    }
+}
+
+.header {
+    padding: 30px 40px;
+    border-bottom: var(--border-thick);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: white;
+}
+
+.header h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 28px;
+    color: var(--dark-text);
+}
+
+.closeBtn {
+    background: var(--deep-black);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.2s ease;
+}
+
+.closeBtn:hover {
+    transform: rotate(90deg);
+}
+
+.formContent {
+    padding: 30px 40px;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.formGroup {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.formGroup label {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--dark-text);
+}
+
+.input, .select, .textarea {
+    width: 100%;
+    padding: 14px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    border: var(--border-thick);
+    border-radius: var(--radius-md);
+    background: white;
+    color: var(--dark-text);
+    outline: none;
+    box-shadow: 4px 4px 0px var(--deep-black);
+    transition: all 0.2s ease;
+}
+
+.input:focus, .select:focus, .textarea:focus {
+    box-shadow: 6px 6px 0px var(--primary);
+    background: #FAF8FF;
+}
+
+.submitBtn {
+    width: 100%;
+    background: var(--primary);
+    color: white;
+    padding: 16px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    border: var(--border-thick);
+    border-radius: var(--radius-md);
+    box-shadow: 6px 6px 0px var(--deep-black);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 10px;
+}
+
+.submitBtn:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 4px 4px 0px var(--deep-black);
+    background: #4338CA;
+}
+
+.submitBtn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}

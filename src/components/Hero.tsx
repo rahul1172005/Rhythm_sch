@@ -3,9 +3,11 @@ import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 import styles from './Hero.module.css';
-import Link from 'next/link';
+import { useAdmissions } from '@/context/AdmissionsContext';
 
 const Hero = () => {
+    const { setInquiryOpen } = useAdmissions();
+
     return (
         <section className={styles.hero}>
             <div className={`container ${styles.heroContainer}`}>
@@ -15,40 +17,44 @@ const Hero = () => {
                         animate={{ opacity: 1, scale: 1 }}
                         className={styles.mainTitle}
                     >
-                        TOT<span>©</span>
+                        RHYTHM
                     </motion.h1>
                     <p className={styles.tagline}>
-                        Craving something delicious? Taste of Trio's brings you the tastiest dishes, curated from the best chefs and local favorites.
+                        Where Every Little Step Creates a Bright Future. A nurturing preschool where children learn through play, creativity, exploration, and meaningful experiences in a safe and joyful environment.
                     </p>
                     <div className={styles.ctaGroup}>
-                        <Link href="/menu" className={styles.primaryBtn}>ORDER NOW</Link>
-                        <Link href="/menu" className={styles.secondaryBtn}>VIEW MENU</Link>
+                        <button onClick={() => setInquiryOpen(true)} className={styles.primaryBtn}>
+                            ENROLL NOW
+                        </button>
+                        <a href="tel:+919566263956" className={styles.secondaryBtn} style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', textDecoration: 'none' }}>
+                            CALL US
+                        </a>
                     </div>
                 </div>
 
                 <div className={styles.collageGrid}>
                     <div className={styles.collageLarge}>
-                        <Image src="/images/trio_chefs_uploaded.jpg" alt="Featured" fill style={{ objectFit: 'cover' }} />
-                        <div className="sticker" style={{ position: 'absolute', top: 20, right: 20 }}>NEW ARRIVAL</div>
+                        <Image src="/images/image copy.png" alt="Children playing with blocks" fill style={{ objectFit: 'cover' }} priority />
+                        <div className="sticker" style={{ position: 'absolute', top: 20, right: 20 }}>PLAY-BASED LEARNING</div>
                     </div>
 
                     <div className={styles.collageSide}>
                         <div className={styles.miniBlock} style={{ background: 'var(--pop-mint)' }}>
-                            <h3>FOOD FOR THE CRAVING</h3>
-                            <div className={styles.orderTape}>ORDER NOW</div>
+                            <h3>DISCOVER & IMAGINE</h3>
+                            <div className={styles.orderTape}>VISIT CAMPUS</div>
                         </div>
                         <div className={styles.miniBlock} style={{ background: 'var(--pop-pink)' }}>
-                            <Image src="/images/hero_burgers_trio.png" alt="Burger" fill style={{ objectFit: 'cover' }} />
+                            <Image src="/images/preschool_classroom.png" alt="Preschool classroom" fill style={{ objectFit: 'cover' }} />
                         </div>
                         <div className={styles.miniBlock} style={{ background: 'var(--pop-purple)' }}>
                             <h3>JOIN US</h3>
-                            <p>@TRIOFOOD</p>
+                            <p>@RHYTHMSCHOOL</p>
                         </div>
                     </div>
                 </div>
 
                 <div className={styles.bottomAwards}>
-                    <h2>SERVING BOLD FLAVORS TO THE CITY SINCE MAY 2026</h2>
+                    <h2>NURTURING HAPPY HEARTS & CURIOUS MINDS FOR AGES 2 TO 6</h2>
                 </div>
             </div>
         </section>

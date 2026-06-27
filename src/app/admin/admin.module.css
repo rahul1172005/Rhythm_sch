@@ -1,23 +1,24 @@
 .adminContainer {
     display: flex;
     min-height: 100vh;
-    background: var(--soft-cream);
+    background: var(--light-bg);
 }
 
 .sidebar {
     width: 280px;
-    background: var(--charcoal-black);
+    background: var(--deep-black);
     color: white;
     display: flex;
     flex-direction: column;
     padding: 40px 0;
     position: fixed;
     height: 100vh;
-    border-right: 1px solid rgba(255, 107, 0, 0.1);
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+    z-index: 100;
 }
 
 .adminLogo {
-    font-family: 'Outfit', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-size: 24px;
     font-weight: 900;
     padding: 0 40px;
@@ -26,13 +27,14 @@
 }
 
 .adminLogo span {
-    color: var(--flame-orange);
+    color: var(--secondary);
 }
 
 .adminNav {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+    gap: 5px;
 }
 
 .adminNav a {
@@ -41,13 +43,26 @@
     gap: 15px;
     padding: 15px 40px;
     font-weight: 700;
-    color: #888;
+    color: #a3a3a3;
     transition: all 0.2s;
+    font-family: 'Poppins', sans-serif;
 }
 
-.adminNav a:hover {
+.adminNav a:hover, .adminNav a.active {
     background: rgba(255, 255, 255, 0.05);
-    color: var(--flame-orange);
+    color: white;
+}
+
+.sidebarFooter {
+    padding: 0 40px;
+}
+
+.sidebarFooter a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #ef4444;
+    font-weight: 700;
 }
 
 .adminContent {
@@ -58,11 +73,15 @@
 
 .dashboardHeader {
     margin-bottom: 40px;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 20px;
 }
 
 .dashboardHeader h1 {
+    font-family: 'Poppins', sans-serif;
     font-size: 36px;
-    color: var(--charcoal-black);
+    color: var(--dark-text);
+    font-weight: 800;
 }
 
 .statsGrid {
@@ -85,38 +104,43 @@
     display: flex;
     align-items: center;
     gap: 20px;
-    box-shadow: var(--shadow-warm);
-    border: 1px solid rgba(255, 107, 0, 0.05);
+    box-shadow: 4px 4px 0px var(--deep-black);
+    border: var(--border-thick);
 }
 
 .statIcon {
-    width: 60px;
-    height: 60px;
-    border-radius: 15px;
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: var(--soft-cream);
-    color: var(--flame-orange);
+    background: var(--light-bg);
+    color: var(--primary);
+    border: 1.5px solid var(--deep-black);
 }
 
 .statInfo span {
-    font-size: 13px;
-    color: #888;
+    font-size: 12px;
+    color: #6b7280;
     font-weight: 700;
     text-transform: uppercase;
+    font-family: 'Poppins', sans-serif;
 }
 
 .statInfo h3 {
-    font-size: 24px;
-    color: var(--charcoal-black);
+    font-size: 26px;
+    color: var(--dark-text);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
 }
 
 .recentOrders {
     background: white;
     border-radius: var(--radius-xl);
     padding: 40px;
-    box-shadow: var(--shadow-warm);
+    box-shadow: 6px 6px 0px var(--deep-black);
+    border: var(--border-thick);
 }
 
 .sectionHead {
@@ -126,57 +150,110 @@
     margin-bottom: 30px;
 }
 
+.sectionHead h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.tableWrapper {
+    overflow-x: auto;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
 .table th {
     text-align: left;
     padding: 15px;
-    border-bottom: 2px solid var(--soft-cream);
-    color: #888;
+    border-bottom: 2px solid #e5e7eb;
+    color: #4b5563;
     font-size: 12px;
     text-transform: uppercase;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
 }
 
 .table td {
     padding: 20px 15px;
-    border-bottom: 1px solid #f9f9f9;
+    border-bottom: 1px solid #f3f4f6;
     font-size: 14px;
-    font-weight: 600;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    color: var(--dark-text);
 }
 
 .statusBadge {
-    padding: 5px 12px;
+    padding: 6px 12px;
     border-radius: 50px;
     font-size: 11px;
     font-weight: 800;
+    border: 1px solid var(--deep-black);
+    font-family: 'Poppins', sans-serif;
+    display: inline-block;
 }
 
-.new {
-    background: #E3F2FD;
-    color: #1976D2;
+.book_visit {
+    background: #DBEAFE;
+    color: #1E40AF;
 }
 
-.preparing {
-    background: #FFF3E0;
-    color: #F57C00;
+.meet_educators {
+    background: #FEF3C7;
+    color: #92400E;
 }
 
-.ready {
-    background: #E8F5E9;
-    color: #2E7D32;
+.app_submission {
+    background: #FCE7F3;
+    color: #9D174D;
 }
 
-.delivered {
-    background: #F5F5F5;
-    color: #666;
+.confirmation {
+    background: #D1FAE5;
+    color: #065F46;
+}
+
+.welcome {
+    background: #E0F2FE;
+    color: #0369A1;
 }
 
 .primaryActionBtn {
-    background: var(--primary-gradient);
+    background: var(--primary);
     color: white;
     padding: 12px 24px;
-    border-radius: 50px;
-    font-weight: 800;
-    display: flex;
+    border-radius: 8px;
+    font-weight: 700;
+    display: inline-flex;
     align-items: center;
     gap: 10px;
     font-size: 14px;
+    border: var(--border-thick);
+    box-shadow: 4px 4px 0px var(--deep-black);
+    cursor: pointer;
+}
+
+.primaryActionBtn:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 2px 2px 0px var(--deep-black);
+}
+
+.iconBtn {
+    background: var(--light-bg);
+    border: 1.5px solid var(--deep-black);
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 2px 2px 0px var(--deep-black);
+}
+
+.iconBtn:hover {
+    transform: translate(1px, 1px);
+    box-shadow: 1px 1px 0px var(--deep-black);
 }

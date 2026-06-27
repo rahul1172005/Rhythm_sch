@@ -32,7 +32,7 @@ export default function AdminLogin() {
         <div className={styles.container}>
             <div className={styles.loginCard}>
                 <div className={styles.header}>
-                    <Link href="/" className={styles.logo}>TOT<span>©</span></Link>
+                    <Link href="/" className={styles.logo}>RHYTHM<span>★</span></Link>
                     <h2>Admin Access</h2>
                 </div>
                 <form onSubmit={handleSubmit} className={styles.form}>
@@ -42,7 +42,7 @@ export default function AdminLogin() {
                             type="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
-                            placeholder="admin@tot.com"
+                            placeholder="admin@rhythmpreschool.com"
                             required
                         />
                     </div>

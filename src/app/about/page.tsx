@@ -7,95 +7,127 @@ import Image from "next/image";
 import { motion } from 'framer-motion';
 
 const AboutPage = () => {
+    const scrollAnimationProps = {
+        initial: { opacity: 0, y: 40 },
+        whileInView: { opacity: 1, y: 0 },
+        viewport: { once: true, margin: "-100px" },
+        transition: { duration: 0.6 }
+    };
+
     return (
         <main className={styles.main}>
             <Navbar />
 
-            <section className={styles.heroSection}>
+            <motion.section {...scrollAnimationProps} className={styles.heroSection}>
                 <div className="container">
-                    <h1 className={styles.title}>OUR STORY<span>©</span></h1>
+                    <h1 className={styles.title}>OUR STORY</h1>
                     <div className={styles.heroGrid}>
-                        <div className={styles.heroImage}>
-                            <Image src="/images/trio_chefs_uploaded.jpg" alt="The Trio" fill style={{ objectFit: 'cover' }} />
+                        <div className={styles.heroImageContainer} style={{ position: 'relative', width: '100%', height: '600px' }}>
+                            <div className={styles.heroImage} style={{ position: 'relative', width: '100%', height: '100%', border: 'var(--border-thick)', borderRadius: '32px', overflow: 'hidden' }}>
+                                <Image 
+                                    src="/images/hero_preschool_kids.png" 
+                                    alt="Happy kids" 
+                                    fill 
+                                    style={{ 
+                                        objectFit: 'cover'
+                                    }} 
+                                />
+                            </div>
                             <div className="sticker" style={{ position: 'absolute', bottom: -20, left: 40, fontSize: '24px' }}>EST. 2026</div>
                         </div>
                         <div className={styles.heroContent}>
-                            <h2 className={styles.accentTitle}>THREE MASTERS. <br /> ONE FLAME.</h2>
+                            <h2 className={styles.accentTitle}>Growing Happy Hearts & <br /> Curious Minds</h2>
                             <p className={styles.leadText}>
-                                It started in a small kitchen with a big dream. Three brothers, one grill, and an obsession with the perfect spice blend. Today, Taste of Trio's (TOT) is the city's anthem for bold, unapologetic street food.
+                                At Rhythm Preschool, we believe every child learns differently. Our play-based learning approach encourages curiosity, creativity, communication, and confidence while building the essential foundations for lifelong learning.
                             </p>
                         </div>
                     </div>
                 </div>
-            </section>
+            </motion.section>
 
-            <section className="section-padding" style={{ background: 'white' }}>
+            <motion.section {...scrollAnimationProps} className="section-padding" style={{ background: 'white' }}>
                 <div className="container">
+                    <div style={{ textAlign: 'center', marginBottom: '60px' }}>
+                        <span className={styles.timelineSubtitle}>OUR HISTORY</span>
+                        <h2 className={styles.timelineHeading}>Our Journey & Milestones</h2>
+                    </div>
                     <div className={styles.timelineGrid}>
                         <div className={styles.timelineBlock}>
-                            <h3 className={styles.year}>2020</h3>
-                            <div className={styles.editorialBox} style={{ background: 'var(--pop-mint)' }}>
-                                <h4>THE CONCEPT</h4>
-                                <p>Three brothers, one lockdown dream. The idea for TOT was born in a home kitchen, experimenting with spice blends and street food classics.</p>
+                            <h3 className={styles.year}>2024</h3>
+                            <div className={styles.editorialBox} style={{ background: 'var(--pop-mint)', border: 'var(--border-thick)', boxShadow: '4px 4px 0px var(--deep-black)', borderRadius: '16px', padding: '20px' }}>
+                                <h4>THE VISION</h4>
+                                <p>A team of child psychologists and experienced educators came together with a goal: design a curriculum that integrates play, technology, and character development.</p>
                             </div>
                         </div>
                         <div className={styles.timelineBlock}>
-                            <h3 className={styles.year}>2024</h3>
-                            <div className={styles.editorialBox} style={{ background: 'var(--pop-pink)' }}>
-                                <h4>THE BLUEPRINT</h4>
-                                <p>We secured our first location and spent two years perfecting the menu. Every burger, every wrap was tested a hundred times.</p>
+                            <h3 className={styles.year}>2025</h3>
+                            <div className={styles.editorialBox} style={{ background: 'var(--pop-pink)', border: 'var(--border-thick)', boxShadow: '4px 4px 0px var(--deep-black)', borderRadius: '16px', padding: '20px' }}>
+                                <h4>THE CAMPUS</h4>
+                                <p>We built our child-friendly flagship campus featuring secure layouts, smart interactive boards, and indoor & outdoor sensory playgrounds.</p>
                             </div>
                         </div>
                         <div className={styles.timelineBlock}>
                             <h3 className={styles.year}>2026</h3>
-                            <div className={styles.editorialBox} style={{ background: 'var(--pop-purple)' }}>
+                            <div className={styles.editorialBox} style={{ background: 'var(--pop-purple)', border: 'var(--border-thick)', boxShadow: '4px 4px 0px var(--deep-black)', borderRadius: '16px', padding: '20px' }}>
                                 <h4>GRAND OPENING</h4>
-                                <p>On May 1st, TOT officially opened its doors. A new era of editorial street food begins right here, right now.</p>
+                                <p>On June 1st, Rhythm Preschool officially welcomed its first batch of playgroups, nursery, junior, and senior kindergarten students.</p>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </motion.section>
 
-            <section className={styles.philosophySection}>
+            <motion.section {...scrollAnimationProps} className={styles.philosophySection}>
                 <div className="container">
                     <div className={styles.philosophyGrid}>
                         <div className={styles.philTitle}>
-                            <h2>WHY WE RIDE<span>©</span></h2>
+                            <h2>LEARNING BEYOND BOOKS</h2>
                         </div>
                         <div className={styles.philItems}>
                             <div className={styles.philItem}>
-                                <h3>01. AUDACITY</h3>
-                                <p>We don't do "mild". Every bite should be a punch to the senses. If it doesn't leave a mark, it's not a TOT meal.</p>
+                                <h3>01. PLAY & DISCOVERY</h3>
+                                <p>We believe children explore the world through sensory playing. Daily games, blocks, sandbox play, and puzzles are central to early cognitive development.</p>
                             </div>
                             <div className={styles.philItem}>
-                                <h3>02. COMMUNITY</h3>
-                                <p>The street is where we belong. We source local, hire local, and feed the soul of the community that built us.</p>
+                                <h3>02. HOLISTIC HEALTH</h3>
+                                <p>Education is emotional, social, and physical. We monitor and support emotional intelligence, confidence building, and peer collaboration.</p>
                             </div>
                             <div className={styles.philItem}>
-                                <h3>03. CRAFT</h3>
-                                <p>Street food is art. From the hand-kneaded dough to the 24-hour marinated shawarma, we respect the process.</p>
+                                <h3>03. PARENT COOPERATION</h3>
+                                <p>A child's education is a partnership. We work closely with families through continuous app updates, weekly reviews, and open communication channels.</p>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </motion.section>
 
-            <section className="section-padding">
+            <motion.section {...scrollAnimationProps} className="section-padding" style={{ background: 'white' }}>
                 <div className="container">
                     <div className={styles.collageFooter}>
                         <div className={styles.bigImage}>
-                            <Image src="/images/hero_burgers_trio.png" alt="Burger" fill style={{ objectFit: 'cover' }} />
+                            <Image 
+                                src="/images/preschool_playground.png" 
+                                alt="Playground play" 
+                                fill 
+                                style={{ objectFit: 'cover' }} 
+                            />
                         </div>
                         <div className={styles.smallImages}>
-                            <div className={styles.imgWrap}><Image src="/images/shawarma_luxury.png" alt="Shawarma" fill style={{ objectFit: 'cover' }} /></div>
-                            <div className={styles.imgWrap} style={{ background: 'var(--pop-yellow)', border: 'var(--border-thick)', display: 'flex', alignItems: 'center', justifyItems: 'center', padding: '20px' }}>
-                                <h3 style={{ fontSize: '40px', textAlign: 'center' }}>KEEP IT <br /> FIERY</h3>
+                            <div className={styles.imgWrap}>
+                                <Image 
+                                    src="/images/preschool_classroom.png" 
+                                    alt="Classroom play" 
+                                    fill 
+                                    style={{ objectFit: 'cover' }} 
+                                />
+                            </div>
+                            <div className={styles.imgWrap} style={{ background: 'var(--pop-yellow)', border: 'var(--border-thick)', borderRadius: '24px', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '20px', boxShadow: '6px 6px 0px var(--deep-black)' }}>
+                                <h3 style={{ fontSize: '32px', textAlign: 'center', fontFamily: 'Poppins, sans-serif', fontWeight: 800 }}>GROW & <br /> CREATE</h3>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
+            </motion.section>
 
             <Footer />
         </main>

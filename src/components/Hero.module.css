@@ -51,7 +51,7 @@
 
 .primaryBtn {
     background: var(--pop-orange);
-    color: white;
+    color: var(--deep-black);
     padding: 15px 40px;
     font-family: 'Archivo Black', sans-serif;
     font-size: 16px;
@@ -94,6 +94,7 @@
     border: var(--border-thick);
     border-radius: var(--radius-xl);
     overflow: hidden;
+    transform: translate3d(0, 0, 0);
     height: 100%;
 }
 
@@ -115,6 +116,7 @@
     padding: 25px;
     position: relative;
     overflow: hidden;
+    transform: translate3d(0, 0, 0);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -127,7 +129,7 @@
 
 .orderTape {
     background: var(--pop-orange);
-    color: white;
+    color: var(--deep-black);
     padding: 5px 15px;
     font-family: 'Archivo Black', sans-serif;
     font-size: 12px;

@@ -1,0 +1,153 @@
+.main {
+    background: var(--light-bg);
+    padding-top: 0;
+    min-height: 100vh;
+}
+
+.header {
+    padding: 100px 0 60px;
+    text-align: center;
+    border-bottom: var(--border-thick);
+    background: var(--pop-yellow);
+}
+
+.title {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 80px;
+    margin-bottom: 20px;
+    line-height: 1;
+}
+
+.title span {
+    font-size: 32px;
+    vertical-align: top;
+}
+
+@media (max-width: 968px) {
+    .title {
+        font-size: 56px;
+    }
+}
+
+.subtitle {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 20px;
+    color: var(--dark-text);
+}
+
+.contactGrid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+}
+
+@media (max-width: 968px) {
+    .contactGrid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+.infoSection {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.infoCard {
+    background: white;
+    border: var(--border-thick);
+    border-radius: var(--radius-lg);
+    padding: 30px;
+    box-shadow: 6px 6px 0px var(--deep-black);
+}
+
+.infoCard h3 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+    margin-bottom: 15px;
+    color: var(--primary);
+}
+
+.infoCard p {
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--dark-text);
+}
+
+.formCard {
+    background: white;
+    border: var(--border-thick);
+    border-radius: var(--radius-xl);
+    padding: 40px;
+    box-shadow: 8px 8px 0px var(--deep-black);
+}
+
+.formCard h2 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 28px;
+    margin-bottom: 25px;
+}
+
+.formGroup {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.formGroup label {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.input, .select, .textarea {
+    width: 100%;
+    padding: 14px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    border: var(--border-thick);
+    border-radius: var(--radius-md);
+    background: white;
+    outline: none;
+    box-shadow: 4px 4px 0px var(--deep-black);
+    transition: all 0.2s ease;
+}
+
+.input:focus, .select:focus, .textarea:focus {
+    box-shadow: 6px 6px 0px var(--primary);
+}
+
+.submitBtn {
+    background: var(--pop-orange);
+    color: var(--deep-black);
+    padding: 16px 35px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    border: var(--border-thick);
+    border-radius: var(--radius-md);
+    box-shadow: 6px 6px 0px var(--deep-black);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    margin-top: 10px;
+}
+
+.submitBtn:hover {
+    transform: translate(2px, 2px);
+    box-shadow: 4px 4px 0px var(--deep-black);
+    background: var(--pop-mint);
+    color: var(--deep-black);
+}
+
+.submitBtn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
