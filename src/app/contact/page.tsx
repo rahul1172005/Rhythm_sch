@@ -100,8 +100,8 @@ const ContactPage = () => {
                                 <h3 style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                                     <Mail size={18} /> EMAIL
                                 </h3>
-                                <p>General: girihitter@gmail.com</p>
-                                <p>Support: girihitter@gmail.com</p>
+                                <p>General: rhythmpreschool2026@gmail.com</p>
+                                <p>Support: rhythmpreschool2026@gmail.com</p>
                             </div>
                         </div>
 

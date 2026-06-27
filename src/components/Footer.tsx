@@ -3,7 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 import styles from '@/app/page.module.css'; // Reusing home styles for footer
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Mail } from 'lucide-react';
+import { MapPin, Phone, Mail, Heart } from 'lucide-react';
 
 const Footer = () => {
     return (
@@ -44,7 +44,7 @@ const Footer = () => {
                         </p>
                         <p style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                             <Mail size={16} color="var(--primary)" /> 
-                            <span style={{ fontSize: '14px' }}>girihitter@gmail.com</span>
+                            <span style={{ fontSize: '14px' }}>rhythmpreschool2026@gmail.com</span>
                         </p>
                     </div>
                 </div>
@@ -65,8 +65,11 @@ const Footer = () => {
                     </div>
                 </div>
                 
-                <div className={styles.zapstersCredit} style={{ textAlign: 'center', marginTop: '30px', fontFamily: '"Nunito", sans-serif', fontWeight: 600, fontSize: '14px', color: '#9CA3AF' }}>
-                    Made by <a href="https://www.zapsters.in/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--deep-black)', textDecoration: 'underline' }}>ZAPSTERS</a>
+                <div className={styles.zapstersCredit} style={{ textAlign: 'center', marginTop: '30px', fontFamily: '"Nunito", sans-serif', fontWeight: 700, fontSize: '18px', color: '#4B5563', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px' }}>
+                    <span>Made with</span>
+                    <Heart size={18} fill="#EF4444" color="#EF4444" style={{ display: 'inline-block', verticalAlign: 'middle' }} />
+                    <span>by</span>
+                    <a href="https://www.zapsters.in/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--deep-black)', textDecoration: 'underline', fontWeight: 800 }}>ZAPSTERS</a>
                 </div>
             </div>
         </footer>
