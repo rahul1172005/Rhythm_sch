@@ -14,18 +14,18 @@ const Navbar = () => {
             <div className={`container ${styles.navContainer}`}>
                 <div className={styles.navLeft}>
                     <Link href="/" className={styles.logo} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
-                        <Image
-                            src="/images/school_logo.png"
-                            alt="Rhythm Preschool Logo"
-                            width={32}
-                            height={32}
-                            style={{
+                        <Image 
+                            src="/images/school_logo.png" 
+                            alt="Rhythm Preschool Logo" 
+                            width={48} 
+                            height={48} 
+                            style={{ 
                                 objectFit: 'contain',
-                                transform: 'scale(4.0) translate(0px, 0px)', // Custom scale and translation axes
+                                transform: 'scale(1.0) translate(0px, 0px)', // Keep scale at 1.0 to render original crisp resolution
                                 borderRadius: '4px'
-                            }}
+                            }} 
                         />
-                        <span>RHYTHM</span>
+                        RHYTHM
                     </Link>
                 </div>
 
@@ -67,8 +67,8 @@ const Navbar = () => {
                         <Link href="/facilities" onClick={() => setIsOpen(false)}>FACILITIES</Link>
                         <Link href="/admissions" onClick={() => setIsOpen(false)}>ADMISSIONS</Link>
                         <Link href="/contact" onClick={() => setIsOpen(false)}>CONTACT</Link>
-                        <a
-                            href="tel:+919566263956"
+                        <a 
+                            href="tel:+919566263956" 
                             className={styles.cartBtn}
                             style={{ width: '100%', marginTop: '10px', textAlign: 'center', display: 'block' }}
                             onClick={() => setIsOpen(false)}
