@@ -17,8 +17,8 @@ const Navbar = () => {
                         <Image 
                             src="/images/school_logo.png" 
                             alt="Rhythm Preschool Logo" 
-                            width={48} 
-                            height={48} 
+                            width={64} 
+                            height={64} 
                             style={{ 
                                 objectFit: 'contain',
                                 transform: 'scale(1.0) translate(0px, 0px)', // Crisp rendering scale
