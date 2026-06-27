@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { Menu, X, User } from 'lucide-react';
 import styles from './Navbar.module.css';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -12,8 +13,19 @@ const Navbar = () => {
         <nav className={styles.nav}>
             <div className={`container ${styles.navContainer}`}>
                 <div className={styles.navLeft}>
-                    <Link href="/" className={styles.logo}>
-                        RHYTHM
+                    <Link href="/" className={styles.logo} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
+                        <Image 
+                            src="/images/school_logo.png" 
+                            alt="Rhythm Preschool Logo" 
+                            width={32} 
+                            height={32} 
+                            style={{ 
+                                objectFit: 'contain',
+                                transform: 'scale(1.0) translate(0px, 0px)', // Custom scale and translation axes
+                                borderRadius: '4px'
+                            }} 
+                        />
+                        <span>RHYTHM</span>
                     </Link>
                 </div>
 
