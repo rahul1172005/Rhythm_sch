@@ -13,19 +13,22 @@ const Navbar = () => {
         <nav className={styles.nav}>
             <div className={`container ${styles.navContainer}`}>
                 <div className={styles.navLeft}>
-                    <Link href="/" className={styles.logo} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px' }}>
-                        <Image
-                            src="/images/school_logo.png"
-                            alt="Rhythm Preschool Logo"
-                            width={64}
-                            height={64}
-                            style={{
+                    <Link href="/" className={styles.logo} style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}>
+                        <Image 
+                            src="/images/school_logo.png" 
+                            alt="Rhythm Preschool Logo" 
+                            width={56} 
+                            height={56} 
+                            style={{ 
                                 objectFit: 'contain',
-                                transform: 'scale(1.8) translate(0px, 0px)', // Crisp rendering scale
+                                transform: 'scale(1.0) translate(0px, 0px)',
                                 borderRadius: '4px'
-                            }}
+                            }} 
                         />
-                        Rhythm PreSchool
+                        <div style={{ display: 'flex', flexDirection: 'column', lineHeight: '1.0', textAlign: 'left' }}>
+                            <span style={{ fontSize: '28px', fontWeight: 900, fontFamily: 'Poppins, sans-serif', color: 'var(--deep-black)' }}>Rhythm</span>
+                            <span style={{ fontSize: '13px', fontWeight: 800, fontFamily: 'Nunito, sans-serif', color: 'var(--primary)', letterSpacing: '2px', marginTop: '2px' }}>PRESCHOOL</span>
+                        </div>
                     </Link>
                 </div>
 
@@ -67,8 +70,8 @@ const Navbar = () => {
                         <Link href="/facilities" onClick={() => setIsOpen(false)}>FACILITIES</Link>
                         <Link href="/admissions" onClick={() => setIsOpen(false)}>ADMISSIONS</Link>
                         <Link href="/contact" onClick={() => setIsOpen(false)}>CONTACT</Link>
-                        <a
-                            href="tel:+919566263956"
+                        <a 
+                            href="tel:+919566263956" 
                             className={styles.cartBtn}
                             style={{ width: '100%', marginTop: '10px', textAlign: 'center', display: 'block' }}
                             onClick={() => setIsOpen(false)}

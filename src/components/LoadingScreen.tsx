@@ -28,10 +28,10 @@ const LoadingScreen = () => {
                         flexDirection: 'column',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        gap: '30px',
+                        gap: '20px',
                     }}
                 >
-                    {/* Decorative Soft Background Blur */}
+                    {/* Decorative Soft Background Glow */}
                     <div style={{
                         position: 'absolute',
                         width: '300px',
@@ -42,7 +42,7 @@ const LoadingScreen = () => {
                     }} />
 
                     {/* Logo Text Stacking */}
-                    <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                    <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', gap: '8px' }}>
                         <motion.h1
                             initial={{ opacity: 0, y: -30 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -51,10 +51,10 @@ const LoadingScreen = () => {
                                 fontSize: '80px',
                                 fontWeight: 900,
                                 fontFamily: 'Poppins, sans-serif',
-                                color: '#1E1B4B', // Premium dark indigo
+                                color: '#4F46E5', // Crisp brand purple/indigo
                                 margin: 0,
                                 textTransform: 'uppercase',
-                                lineHeight: '0.9',
+                                lineHeight: '1.2', // Increased line spacing to prevent any overlapping
                                 letterSpacing: '-0.04em',
                             }}
                         >
@@ -68,11 +68,11 @@ const LoadingScreen = () => {
                                 fontSize: '38px',
                                 fontWeight: 800,
                                 fontFamily: 'Nunito, sans-serif',
-                                color: '#F59E0B', // Premium warm orange
+                                color: '#4F46E5', // Match to same purple brand theme
                                 margin: 0,
                                 textTransform: 'uppercase',
                                 letterSpacing: '0.1em',
-                                lineHeight: '1',
+                                lineHeight: '1.2', // Clear spacing
                             }}
                         >
                             PreSchool
@@ -95,7 +95,7 @@ const LoadingScreen = () => {
                                     width: '14px',
                                     height: '14px',
                                     borderRadius: '50%',
-                                    border: '2px solid #1F2937', // Neobrutalist mini outline
+                                    border: '2px solid #1F2937', // Neobrutalist outline
                                     background: i === 0 ? '#4F46E5' : i === 1 ? '#FF6B6B' : '#10B981', // Violet, Pink, Mint
                                     boxShadow: '1.5px 1.5px 0px #1F2937'
                                 }}
