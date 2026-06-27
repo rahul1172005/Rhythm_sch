@@ -1,0 +1,213 @@
+.main {
+    background: var(--pop-yellow);
+    padding-top: 0;
+}
+
+.heroSection {
+    padding: 100px 0;
+}
+
+.title {
+    font-size: 160px;
+    line-height: 0.8;
+    margin-bottom: 60px;
+}
+
+.title span {
+    font-size: 40px;
+    vertical-align: top;
+}
+
+@media (max-width: 968px) {
+    .title {
+        font-size: 80px;
+    }
+}
+
+.heroGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .heroGrid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+.heroImage {
+    position: relative;
+    height: 600px;
+    border: var(--border-thick);
+    border-radius: var(--radius-xl);
+    overflow: visible;
+}
+
+.heroContent {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.accentTitle {
+    font-size: 80px;
+    line-height: 0.9;
+}
+
+.leadText {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 1.4;
+}
+
+/* Timeline */
+.timelineGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+@media (max-width: 968px) {
+    .timelineGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.timelineBlock {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.year {
+    font-size: 64px;
+    color: var(--deep-black);
+}
+
+.editorialBox {
+    border: var(--border-thick);
+    padding: 40px;
+    height: 100%;
+}
+
+.editorialBox h4 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.editorialBox p {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Philosophy */
+.philosophySection {
+    padding: 100px 0;
+}
+
+.philosophyGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 100px;
+}
+
+@media (max-width: 768px) {
+    .philosophyGrid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+}
+
+.philTitle h2 {
+    font-size: 120px;
+    line-height: 0.8;
+}
+
+@media (max-width: 968px) {
+    .philTitle h2 {
+        font-size: 64px;
+    }
+}
+
+.philItems {
+    display: flex;
+    flex-direction: column;
+    gap: 60px;
+}
+
+.philItem h3 {
+    font-size: 32px;
+    margin-bottom: 15px;
+    color: var(--pop-orange);
+}
+
+.philItem p {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.4;
+}
+
+/* Collage Footer */
+.collageFooter {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 30px;
+    height: 500px;
+}
+
+@media (max-width: 768px) {
+    .collageFooter {
+        grid-template-columns: 1fr;
+        height: auto;
+    }
+}
+
+.bigImage {
+    position: relative;
+    border: var(--border-thick);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .bigImage {
+        height: 300px;
+    }
+}
+
+.smallImages {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 30px;
+}
+
+.imgWrap {
+    position: relative;
+    border: var(--border-thick);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .imgWrap {
+        height: 200px;
+    }
+}
+
+.footerLogo {
+    font-size: 200px;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.footerLogo span {
+    font-size: 30px;
+    vertical-align: top;
+}

@@ -1,0 +1,216 @@
+.main {
+    background: var(--pop-yellow);
+    padding-top: 0;
+}
+
+.header {
+    padding: 100px 0 60px;
+    text-align: center;
+    border-bottom: var(--border-thick);
+}
+
+.title {
+    font-size: 160px;
+    line-height: 0.8;
+    margin-bottom: 20px;
+}
+
+.title span {
+    font-size: 40px;
+    vertical-align: top;
+}
+
+@media (max-width: 968px) {
+    .title {
+        font-size: 80px;
+    }
+}
+
+.subtitle {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+}
+
+/* Stores Grid */
+.storesGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 40px;
+}
+
+@media (max-width: 500px) {
+    .storesGrid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.storeCard {
+    background: white;
+    border: var(--border-thick);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.storeCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 8px 8px 0px var(--deep-black);
+}
+
+.cardImage {
+    position: relative;
+    height: 300px;
+    border-bottom: var(--border-thick);
+    overflow: hidden;
+}
+
+.cardContent {
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+.cardHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.cardHeader h2 {
+    font-size: 32px;
+    max-width: 80%;
+    min-height: 80px;
+    /* Consistent height for grid */
+    display: flex;
+    align-items: center;
+}
+
+.mapLink {
+    background: var(--deep-black);
+    color: white;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.detailItem {
+    display: flex;
+    gap: 15px;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    align-items: center;
+}
+
+.directionBtn {
+    background: var(--pop-orange);
+    color: white;
+    padding: 15px;
+    font-family: 'Archivo Black', sans-serif;
+    font-size: 14px;
+    border: var(--border-thick);
+    box-shadow: 6px 6px 0px var(--deep-black);
+}
+
+.directionBtn:hover {
+    transform: translate(3px, 3px);
+    box-shadow: 3px 3px 0px var(--deep-black);
+}
+
+/* Map Section */
+.mapSection {
+    padding-bottom: 100px;
+}
+
+.mapContainer {
+    height: 600px;
+    background: #eee;
+    border: var(--border-thick);
+    position: relative;
+    overflow: hidden;
+}
+
+.simulatedMap {
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(var(--pop-yellow) 1px, transparent 1px);
+    background-size: 40px 40px;
+    background-color: #222;
+    position: relative;
+}
+
+.mapMarker {
+    position: absolute;
+    background: var(--pop-orange);
+    color: white;
+    padding: 5px 15px;
+    font-family: 'Archivo Black', sans-serif;
+    border-radius: 100px;
+    box-shadow: 0 0 20px var(--pop-orange);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.1);
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.mapOverlay {
+    position: absolute;
+    top: 40px;
+    left: 40px;
+    z-index: 5;
+    max-width: 400px;
+}
+
+.mapCard {
+    background: white;
+    border: var(--border-thick);
+    padding: 40px;
+    box-shadow: var(--shadow-block);
+}
+
+.mapCard h3 {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.mapCard p {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.footerLogo {
+    font-size: 200px;
+    text-align: center;
+    padding: 100px 0;
+}
+
+.footerLogo span {
+    font-size: 30px;
+    vertical-align: top;
+}
