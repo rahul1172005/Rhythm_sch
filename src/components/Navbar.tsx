@@ -36,13 +36,15 @@ const Navbar = () => {
                     <Link href="/facilities">FACILITIES</Link>
                     <Link href="/admissions">ADMISSIONS</Link>
                     <Link href="/contact">CONTACT</Link>
-                    <Link href="/contact" className={styles.scheduleLink}>SCHEDULE VISIT</Link>
                 </div>
 
                 <div className={styles.navRight}>
                     <a href="tel:+919566263956" className={styles.cartBtn}>
                         CALL US
                     </a>
+                    <Link href="/contact" className={styles.cartBtn}>
+                        SCHEDULE VISIT
+                    </Link>
 
                     <Link href="/admin" className={styles.adminIcon} title="Admin Dashboard">
                         <User size={20} />
@@ -68,7 +70,6 @@ const Navbar = () => {
                         <Link href="/facilities" onClick={() => setIsOpen(false)}>FACILITIES</Link>
                         <Link href="/admissions" onClick={() => setIsOpen(false)}>ADMISSIONS</Link>
                         <Link href="/contact" onClick={() => setIsOpen(false)}>CONTACT</Link>
-                        <Link href="/contact" onClick={() => setIsOpen(false)} className={styles.scheduleLink}>SCHEDULE VISIT</Link>
                         <a
                             href="tel:+919566263956"
                             className={styles.cartBtn}
@@ -77,6 +78,14 @@ const Navbar = () => {
                         >
                             CALL US
                         </a>
+                        <Link
+                            href="/contact"
+                            className={styles.cartBtn}
+                            style={{ width: '100%', textAlign: 'center', display: 'block' }}
+                            onClick={() => setIsOpen(false)}
+                        >
+                            SCHEDULE VISIT
+                        </Link>
                     </motion.div>
                 )}
             </AnimatePresence>
