@@ -51,27 +51,34 @@ const AboutPage = () => {
                         <span className={styles.timelineSubtitle}>OUR HISTORY</span>
                         <h2 className={styles.timelineHeading}>Our Journey & Milestones</h2>
                     </div>
-                    <div className={styles.timelineGrid}>
-                        <div className={styles.timelineBlock}>
-                            <h3 className={styles.year}>2024</h3>
-                            <div className={styles.editorialBox} style={{ background: 'var(--pop-mint)', border: 'var(--border-thick)', boxShadow: '4px 4px 0px var(--deep-black)', borderRadius: '16px', padding: '20px' }}>
-                                <h4>THE VISION</h4>
-                                <p>A team of child psychologists and experienced educators came together with a goal: design a curriculum that integrates play, technology, and character development.</p>
-                            </div>
-                        </div>
-                        <div className={styles.timelineBlock}>
-                            <h3 className={styles.year}>2025</h3>
-                            <div className={styles.editorialBox} style={{ background: 'var(--pop-pink)', border: 'var(--border-thick)', boxShadow: '4px 4px 0px var(--deep-black)', borderRadius: '16px', padding: '20px' }}>
-                                <h4>THE CAMPUS</h4>
-                                <p>We built our child-friendly flagship campus featuring secure layouts, smart interactive boards, and indoor & outdoor sensory playgrounds.</p>
-                            </div>
-                        </div>
+                    <div className={styles.timelineSingle}>
                         <div className={styles.timelineBlock}>
                             <h3 className={styles.year}>2026</h3>
                             <div className={styles.editorialBox} style={{ background: 'var(--pop-purple)', border: 'var(--border-thick)', boxShadow: '4px 4px 0px var(--deep-black)', borderRadius: '16px', padding: '20px' }}>
                                 <h4>GRAND OPENING</h4>
-                                <p>On June 1st, Rhythm Preschool officially welcomed its first batch of playgroups, nursery, junior, and senior kindergarten students.</p>
+                                <p>Rhythm Preschool officially welcomed its first batch of playgroups, nursery, junior, and senior kindergarten students.</p>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </motion.section>
+
+            <motion.section {...scrollAnimationProps} className="section-padding" style={{ background: '#FFFDF9' }}>
+                <div className="container">
+                    <div style={{ textAlign: 'center', marginBottom: '60px' }}>
+                        <span className={styles.timelineSubtitle}>OUR LEADERSHIP</span>
+                        <h2 className={styles.timelineHeading}>Our Founders</h2>
+                    </div>
+                    <div className={styles.foundersGrid}>
+                        <div className={styles.founderCard} style={{ background: 'var(--pop-yellow)' }}>
+                            <div className={styles.founderRole}>PRESIDENT</div>
+                            <h3 className={styles.founderName}>Mr. Giridharan</h3>
+                            <p className={styles.founderDegree}>D.T.Ed., B.B.A., M.B.A.</p>
+                        </div>
+                        <div className={styles.founderCard} style={{ background: 'var(--pop-pink)' }}>
+                            <div className={styles.founderRole}>SECRETARY</div>
+                            <h3 className={styles.founderName}>Mrs. Shobana</h3>
+                            <p className={styles.founderDegree}>D.T.Ed., B.A., B.Ed.</p>
                         </div>
                     </div>
                 </div>
