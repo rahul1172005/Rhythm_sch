@@ -11,7 +11,7 @@ export default function AdminLayout({
     return (
         <div className={styles.adminContainer}>
             <aside className={styles.sidebar}>
-                <div className={styles.adminLogo}>RHYTHM<span>★</span> ADMIN</div>
+                <div className={styles.adminLogo}>Rhythm PreSchool Admin</div>
                 <nav className={styles.adminNav}>
                     <Link href="/admin"><LayoutDashboard size={18} /> Dashboard</Link>
                     <Link href="/admin/inquiries"><FileText size={18} /> Inquiries</Link>

@@ -31,19 +31,22 @@ const Footer = () => {
                     </div>
                     <div className={styles.footerCol}>
                         <h4>QUICK LINKS</h4>
-                        <p>Join the Rhythm family today!</p>
-                        <div className={styles.footerLinks}>
-                            <Link href="/admissions">ADMISSIONS</Link>
-                            <Link href="/contact">CONTACT</Link>
-                            <Link href="/admin">ADMIN PORTAL</Link>
-                        </div>
-                    </div>
-                    <div className={styles.footerCol}>
-                        <h4>OUR VISION</h4>
-                        <p>At Rhythm Preschool, we believe every child learns differently. Our play-based learning approach encourages curiosity, creativity, communication, and confidence while building the essential foundations for lifelong learning in a safe, caring, and stimulating environment.</p>
+                        <p>Join the Rhythm PreSchool family today!</p>
+                        <form className={styles.newsletterForm} onSubmit={(e) => e.preventDefault()}>
+                            <input type="email" placeholder="Your email address" required />
+                            <button type="submit">JOIN</button>
+                        </form>
                     </div>
                 </div>
-                <motion.h2 className={styles.footerLogo}>RHYTHM</motion.h2>
+
+                <div className={styles.footerBottom}>
+                    <div className={styles.footerDesc}>
+                        <p>At Rhythm Preschool, we believe every child learns differently. Our play-based learning approach encourages curiosity, creativity, communication, and confidence while building the essential foundations for lifelong learning in a safe, caring, and stimulating environment.</p>
+                    </div>
+                    <div className={styles.footerLogoContainer}>
+                        <motion.h2 className={styles.footerLogo}>Rhythm PreSchool</motion.h2>
+                    </div>
+                </div>
                 <div className={styles.zapstersCredit} style={{ textAlign: 'center', marginTop: '20px', fontFamily: '"Nunito", sans-serif', fontWeight: 600 }}>
                     Made by <a href="https://www.zapsters.in/" target="_blank" style={{ color: 'var(--deep-black)', textDecoration: 'underline' }}>ZAPSTERS</a>
                 </div>

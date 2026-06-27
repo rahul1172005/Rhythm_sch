@@ -17,7 +17,7 @@ const Hero = () => {
                         animate={{ opacity: 1, scale: 1 }}
                         className={styles.mainTitle}
                     >
-                        RHYTHM
+                        Rhythm PreSchool
                     </motion.h1>
                     <p className={styles.tagline}>
                         Where Every Little Step Creates a Bright Future. A nurturing preschool where children learn through play, creativity, exploration, and meaningful experiences in a safe and joyful environment.

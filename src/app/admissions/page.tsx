@@ -51,7 +51,7 @@ const AdmissionsPage = () => {
             <section className={styles.header}>
                 <div className="container">
                     <h1 className={styles.title}>ADMISSION PROCESS</h1>
-                    <p className={styles.subtitle}>Enrolling your child at Rhythm is simple, transparent, and welcoming.</p>
+                    <p className={styles.subtitle}>Enrolling your child at Rhythm PreSchool is simple, transparent, and welcoming.</p>
                 </div>
             </section>
 

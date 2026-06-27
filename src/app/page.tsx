@@ -94,8 +94,8 @@ export default function Home() {
       <motion.section {...scrollAnimationProps} className="section-padding" style={{ background: 'var(--light-bg)' }}>
         <div className="container">
           <div style={{ textAlign: 'center', marginBottom: '60px' }}>
-            <span className={styles.sectionSubtitle}>THE RHYTHM DIFFERENCE</span>
-            <h2 className={styles.sectionHeading} style={{ fontSize: '64px' }}>Why Choose Rhythm?</h2>
+            <span className={styles.sectionSubtitle}>THE RHYTHM PRESCHOOL DIFFERENCE</span>
+            <h2 className={styles.sectionHeading} style={{ fontSize: '64px' }}>Why Choose Rhythm PreSchool?</h2>
           </div>
           <div className={styles.whyChooseGrid}>
             {whyChooseCards.map((card, i) => (
@@ -231,7 +231,7 @@ export default function Home() {
               { step: 'Step 2', title: 'Meet Our Educators', desc: 'Discuss your child\'s needs and learn about our teaching style.' },
               { step: 'Step 3', title: 'Application Submission', desc: 'Fill out details online or in-person with student records.' },
               { step: 'Step 4', title: 'Admission Confirmation', desc: 'Receive offer and details regarding transport and schedules.' },
-              { step: 'Step 5', title: 'Welcome to Rhythm', desc: 'Start the joyful educational journey with child orientation.' }
+              { step: 'Step 5', title: 'Welcome to Rhythm PreSchool', desc: 'Start the joyful educational journey with child orientation.' }
             ].map((s, i) => (
               <div key={i} className={styles.stepCard}>
                 <span className={styles.stepNum}>{s.step}</span>

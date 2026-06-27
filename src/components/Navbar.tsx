@@ -25,7 +25,7 @@ const Navbar = () => {
                                 borderRadius: '4px'
                             }}
                         />
-                        RHYTHM
+                        Rhythm PreSchool
                     </Link>
                 </div>
 
