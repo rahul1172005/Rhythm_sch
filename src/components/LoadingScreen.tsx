@@ -22,36 +22,69 @@ const LoadingScreen = () => {
                     style={{
                         position: 'fixed',
                         inset: 0,
-                        background: '#F9FAFB', // Light background
+                        background: '#FFFDF9', // Very soft, warm premium background
                         zIndex: 9999,
                         display: 'flex',
                         flexDirection: 'column',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        gap: '20px',
+                        gap: '30px',
                     }}
                 >
-                    <motion.div
-                        animate={{ scale: [1, 1.1, 1] }}
-                        transition={{ repeat: Infinity, duration: 1.5, ease: 'easeInOut' }}
-                        style={{
-                            fontSize: '48px',
-                            fontWeight: 800,
-                            fontFamily: 'Poppins, sans-serif',
-                            color: '#4F46E5', // Primary indigo color
-                            letterSpacing: '-0.02em',
-                            display: 'flex',
-                            alignItems: 'center',
-                            gap: '10px'
-                        }}
-                    >
-                        Rhythm PreSchool
-                    </motion.div>
-                    <div style={{ display: 'flex', gap: '8px' }}>
+                    {/* Decorative Soft Background Blur */}
+                    <div style={{
+                        position: 'absolute',
+                        width: '300px',
+                        height: '300px',
+                        background: 'radial-gradient(circle, rgba(254,243,199,0.6) 0%, rgba(255,253,249,0) 70%)',
+                        zIndex: -1,
+                        filter: 'blur(40px)',
+                    }} />
+
+                    {/* Logo Text Stacking */}
+                    <div style={{ textAlign: 'center', display: 'flex', flexDirection: 'column', gap: '4px' }}>
+                        <motion.h1
+                            initial={{ opacity: 0, y: -30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                            style={{
+                                fontSize: '80px',
+                                fontWeight: 900,
+                                fontFamily: 'Poppins, sans-serif',
+                                color: '#1E1B4B', // Premium dark indigo
+                                margin: 0,
+                                textTransform: 'uppercase',
+                                lineHeight: '0.9',
+                                letterSpacing: '-0.04em',
+                            }}
+                        >
+                            Rhythm
+                        </motion.h1>
+                        <motion.h2
+                            initial={{ opacity: 0, y: 30 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
+                            style={{
+                                fontSize: '38px',
+                                fontWeight: 800,
+                                fontFamily: 'Nunito, sans-serif',
+                                color: '#F59E0B', // Premium warm orange
+                                margin: 0,
+                                textTransform: 'uppercase',
+                                letterSpacing: '0.1em',
+                                lineHeight: '1',
+                            }}
+                        >
+                            PreSchool
+                        </motion.h2>
+                    </div>
+
+                    {/* Playful Loader Dots */}
+                    <div style={{ display: 'flex', gap: '10px', marginTop: '10px' }}>
                         {[0, 1, 2].map((i) => (
                             <motion.div
                                 key={i}
-                                animate={{ y: [0, -10, 0] }}
+                                animate={{ y: [0, -12, 0] }}
                                 transition={{
                                     repeat: Infinity,
                                     duration: 0.6,
@@ -59,10 +92,12 @@ const LoadingScreen = () => {
                                     ease: 'easeInOut'
                                 }}
                                 style={{
-                                    width: '12px',
-                                    height: '12px',
+                                    width: '14px',
+                                    height: '14px',
                                     borderRadius: '50%',
-                                    background: i === 0 ? '#4F46E5' : i === 1 ? '#F59E0B' : '#10B981'
+                                    border: '2px solid #1F2937', // Neobrutalist mini outline
+                                    background: i === 0 ? '#4F46E5' : i === 1 ? '#FF6B6B' : '#10B981', // Violet, Pink, Mint
+                                    boxShadow: '1.5px 1.5px 0px #1F2937'
                                 }}
                             />
                         ))}
