@@ -45,7 +45,7 @@ const LoadingScreen = () => {
                             gap: '10px'
                         }}
                     >
-                        RHYTHM
+                        Rhythm PreSchool
                     </motion.div>
                     <div style={{ display: 'flex', gap: '8px' }}>
                         {[0, 1, 2].map((i) => (
