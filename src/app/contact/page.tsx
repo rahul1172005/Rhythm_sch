@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import styles from "./contact.module.css";
-import { MapPin, Phone, Mail, Shield, CheckCircle, Clock } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { db } from '@/lib/firebase';
 import { ref, push } from 'firebase/database';
@@ -138,8 +138,8 @@ const ContactPage = () => {
 
                             {success ? (
                                 <div className={styles.successBox}>
-                                    <CheckCircle size={52} color="var(--primary)" />
-                                    <h3>Visit Scheduled! 🎉</h3>
+                                    <div className={styles.successEmoji}>🎉</div>
+                                    <h3>Visit Scheduled!</h3>
                                     <p>Thank you, <strong>{formData.parentName}</strong>! We&apos;ve received your visit request for <strong>{formData.tourDate}</strong> at <strong>{formData.tourTime}</strong>.</p>
                                     <p>Our team will call you within 24 hours to confirm your visit.</p>
                                     <button className={styles.submitBtn} style={{ marginTop: '10px' }} onClick={() => { setSuccess(false); setFormData({ parentName: '', email: '', phone: '', childName: '', childAge: '', program: '', tourDate: '', tourTime: '', notes: '', agreePrivacy: false }); }}>
@@ -235,14 +235,12 @@ const ContactPage = () => {
                                         />
                                     </div>
 
-                                    {/* Privacy Checkbox */}
                                     <div className={styles.privacyCheck}>
                                         <input
                                             type="checkbox" id="agreePrivacy" name="agreePrivacy"
                                             checked={formData.agreePrivacy} onChange={handleChange}
                                         />
                                         <label htmlFor="agreePrivacy">
-                                            <Shield size={13} style={{ flexShrink: 0 }} />
                                             I agree to the{' '}
                                             <Link href="/privacy-policy" target="_blank" className={styles.policyLink}>
                                                 Privacy Policy
