@@ -70,8 +70,6 @@
     align-items: center;
     gap: 12px;
     margin-left: 24px;
-    padding-left: 24px;
-    border-left: 2px solid var(--deep-black);
 }
 
 .cartBtn {
