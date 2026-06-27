@@ -18,7 +18,8 @@
     font-family: 'Archivo Black', sans-serif;
     font-size: 28px;
     color: var(--deep-black);
-    line-height: 1.2;
+    line-height: 1.35;
+    white-space: nowrap;
 }
 
 .logo span {
@@ -94,7 +95,9 @@
         display: none;
     }
     .logo {
-        font-size: 24px;
+        font-size: 20px;
+        white-space: normal;
+        line-height: 1.3;
     }
 }
 
