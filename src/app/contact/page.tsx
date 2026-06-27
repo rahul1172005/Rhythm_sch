@@ -6,7 +6,7 @@ import styles from "./contact.module.css";
 import { MapPin, Phone, Mail, Shield, CheckCircle, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { db } from '@/lib/firebase';
-import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import { ref, push } from 'firebase/database';
 import Link from 'next/link';
 
 const timeSlots = [
@@ -55,7 +55,7 @@ const ContactPage = () => {
         setErrorMsg('');
 
         try {
-            await addDoc(collection(db, 'scheduleVisits'), {
+            await push(ref(db, 'scheduleVisits'), {
                 parentName: formData.parentName,
                 email: formData.email,
                 phone: formData.phone,
@@ -65,7 +65,7 @@ const ContactPage = () => {
                 tourDate: formData.tourDate,
                 tourTime: formData.tourTime,
                 notes: formData.notes,
-                submittedAt: serverTimestamp(),
+                submittedAt: new Date().toISOString(),
                 status: 'pending',
             });
             setSuccess(true);
