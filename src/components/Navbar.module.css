@@ -89,6 +89,12 @@
     .mobileToggle {
         display: block;
     }
+    .navRight .cartBtn {
+        display: none;
+    }
+    .logo {
+        font-size: 24px;
+    }
 }
 
 .mobileMenu {
