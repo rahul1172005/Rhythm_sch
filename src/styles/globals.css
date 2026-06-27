@@ -49,6 +49,8 @@ html {
 body {
   margin: 0;
   background-color: var(--light-bg);
+  overflow-x: hidden;
+  width: 100%;
 }
 
 h1,
@@ -132,4 +134,13 @@ button {
   max-width: 1400px;
   margin: 0 auto;
   padding: 0 30px;
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 16px;
+  }
+  .section-padding {
+    padding: 60px 0;
+  }
 }

@@ -4,6 +4,8 @@
     border-bottom: var(--border-thick);
     padding: 6px 0;
     z-index: 1000;
+    width: 100%;
+    overflow: hidden;
 }
 
 /* Scrolled class removed */
@@ -66,7 +68,10 @@
 .navRight {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 12px;
+    margin-left: 24px;
+    padding-left: 24px;
+    border-left: 2px solid var(--deep-black);
 }
 
 .cartBtn {
@@ -110,8 +115,14 @@
     .navRight .cartBtn {
         display: none;
     }
+    .navRight {
+        border-left: none;
+        margin-left: 0;
+        padding-left: 0;
+        gap: 8px;
+    }
     .logo {
-        font-size: 24px;
+        font-size: 18px;
     }
 }
 
