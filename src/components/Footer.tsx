@@ -10,45 +10,63 @@ const Footer = () => {
         <footer className={styles.footer}>
             <div className="container">
                 <div className={styles.footerMain}>
+                    {/* Column 1: About Us */}
                     <div className={styles.footerCol}>
-                        <h4>CONTACT US</h4>
-                        <p style={{ display: 'flex', alignItems: 'flex-start', gap: '8px' }}>
-                            <MapPin size={16} color="var(--primary)" style={{ marginTop: '4px', flexShrink: 0 }} /> 
-                            <span>No. 507 B, T. H. ROAD, MELMANAMBEDU, VELLAVEDU POST, THIRUVALLUR DIST, CHENNAI - 600124</span>
+                        <h4>ABOUT US</h4>
+                        <p style={{ fontSize: '14px', lineHeight: '1.7', color: '#6B7280' }}>
+                            At Rhythm PreSchool, we believe every child learns differently. Our play-based learning approach encourages curiosity, creativity, communication, and confidence while building the essential foundations for lifelong learning in a safe, caring, and stimulating environment.
                         </p>
-                        <p style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                            <Phone size={16} color="var(--primary)" /> +91 95662 63956
-                        </p>
-                        <p style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                            <Mail size={16} color="var(--primary)" /> girihitter@gmail.com
-                        </p>
-                        <div className={styles.footerLinks} style={{ marginTop: '15px' }}>
+                    </div>
+
+                    {/* Column 2: Quick Links */}
+                    <div className={styles.footerCol}>
+                        <h4>QUICK LINKS</h4>
+                        <div className={styles.footerLinks}>
                             <Link href="/">HOME</Link>
                             <Link href="/about">ABOUT</Link>
                             <Link href="/programs">PROGRAMS</Link>
                             <Link href="/facilities">FACILITIES</Link>
+                            <Link href="/admissions">ADMISSIONS</Link>
+                            <Link href="/contact">CONTACT</Link>
                         </div>
                     </div>
+
+                    {/* Column 3: Contact Us */}
                     <div className={styles.footerCol}>
-                        <h4>QUICK LINKS</h4>
-                        <p>Join the Rhythm PreSchool family today!</p>
-                        <form className={styles.newsletterForm} onSubmit={(e) => e.preventDefault()}>
-                            <input type="email" placeholder="Your email address" required />
-                            <button type="submit">JOIN</button>
-                        </form>
+                        <h4>CONTACT US</h4>
+                        <p style={{ display: 'flex', alignItems: 'flex-start', gap: '8px', marginBottom: '12px' }}>
+                            <MapPin size={16} color="var(--primary)" style={{ marginTop: '4px', flexShrink: 0 }} /> 
+                            <span style={{ fontSize: '14px', lineHeight: '1.4' }}>No. 507 B, T. H. ROAD, MELMANAMBEDU, VELLAVEDU POST, THIRUVALLUR DIST, CHENNAI - 600124</span>
+                        </p>
+                        <p style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '12px' }}>
+                            <Phone size={16} color="var(--primary)" /> 
+                            <span style={{ fontSize: '14px' }}>+91 95662 63956</span>
+                        </p>
+                        <p style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                            <Mail size={16} color="var(--primary)" /> 
+                            <span style={{ fontSize: '14px' }}>girihitter@gmail.com</span>
+                        </p>
                     </div>
                 </div>
 
-                <div className={styles.footerBottom}>
-                    <div className={styles.footerDesc}>
-                        <p>At Rhythm Preschool, we believe every child learns differently. Our play-based learning approach encourages curiosity, creativity, communication, and confidence while building the essential foundations for lifelong learning in a safe, caring, and stimulating environment.</p>
-                    </div>
-                    <div className={styles.footerLogoContainer}>
-                        <motion.h2 className={styles.footerLogo}>Rhythm PreSchool</motion.h2>
+                <div className={styles.footerBottom} style={{ borderTop: '2px solid #E5E7EB', paddingTop: '40px', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                    <div className={styles.footerLogoContainer} style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
+                        <motion.h2 
+                            className={styles.footerLogo} 
+                            style={{ 
+                                margin: 0,
+                                fontSize: 'clamp(40px, 10vw, 150px)', // Scalable and responsive logo size
+                                width: '100%',
+                                textAlign: 'center'
+                            }}
+                        >
+                            Rhythm PreSchool
+                        </motion.h2>
                     </div>
                 </div>
-                <div className={styles.zapstersCredit} style={{ textAlign: 'center', marginTop: '20px', fontFamily: '"Nunito", sans-serif', fontWeight: 600 }}>
-                    Made by <a href="https://www.zapsters.in/" target="_blank" style={{ color: 'var(--deep-black)', textDecoration: 'underline' }}>ZAPSTERS</a>
+                
+                <div className={styles.zapstersCredit} style={{ textAlign: 'center', marginTop: '30px', fontFamily: '"Nunito", sans-serif', fontWeight: 600, fontSize: '14px', color: '#9CA3AF' }}>
+                    Made by <a href="https://www.zapsters.in/" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--deep-black)', textDecoration: 'underline' }}>ZAPSTERS</a>
                 </div>
             </div>
         </footer>
