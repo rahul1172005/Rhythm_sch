@@ -18,6 +18,7 @@
     font-family: 'Archivo Black', sans-serif;
     font-size: 28px;
     color: var(--deep-black);
+    line-height: 1.2;
 }
 
 .logo span {
