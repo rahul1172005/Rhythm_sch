@@ -28,7 +28,7 @@ const Footer = () => {
                             <Link href="/facilities">FACILITIES</Link>
                             <Link href="/admissions">ADMISSIONS</Link>
                             <Link href="/contact">CONTACT</Link>
-                            <Link href="/schedule-visit">SCHEDULE A VISIT</Link>
+                            <Link href="/contact">SCHEDULE A VISIT</Link>
                             <Link href="/privacy-policy">PRIVACY POLICY</Link>
                         </div>
                     </div>

@@ -3,56 +3,75 @@ import React, { useState } from 'react';
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import styles from "./contact.module.css";
-import toast from 'react-hot-toast';
-import { MapPin, Phone, Mail } from 'lucide-react';
+import { MapPin, Phone, Mail, Shield, CheckCircle, Clock } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { db } from '@/lib/firebase';
+import { collection, addDoc, serverTimestamp } from 'firebase/firestore';
+import Link from 'next/link';
+
+const timeSlots = [
+    '9:00 AM', '9:30 AM', '10:00 AM', '10:30 AM',
+    '11:00 AM', '11:30 AM', '12:00 PM',
+    '2:00 PM', '2:30 PM', '3:00 PM', '3:30 PM', '4:00 PM',
+];
 
 const ContactPage = () => {
     const [loading, setLoading] = useState(false);
+    const [success, setSuccess] = useState(false);
+    const [errorMsg, setErrorMsg] = useState('');
     const [formData, setFormData] = useState({
         parentName: '',
         email: '',
         phone: '',
         childName: '',
+        childAge: '',
         program: '',
         tourDate: '',
-        notes: ''
+        tourTime: '',
+        notes: '',
+        agreePrivacy: false,
     });
 
+    // Get tomorrow as min date
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    const minDate = tomorrow.toISOString().split('T')[0];
+
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-        const { name, value } = e.target;
-        setFormData(prev => ({ ...prev, [name]: value }));
+        const target = e.target as HTMLInputElement;
+        setFormData(prev => ({
+            ...prev,
+            [target.name]: target.type === 'checkbox' ? target.checked : target.value,
+        }));
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
+        if (!formData.agreePrivacy) {
+            setErrorMsg('Please agree to the Privacy Policy before submitting.');
+            return;
+        }
         setLoading(true);
+        setErrorMsg('');
 
         try {
-            const res = await fetch('/api/admissions/inquiry', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(formData)
+            await addDoc(collection(db, 'scheduleVisits'), {
+                parentName: formData.parentName,
+                email: formData.email,
+                phone: formData.phone,
+                childName: formData.childName,
+                childAge: formData.childAge,
+                program: formData.program,
+                tourDate: formData.tourDate,
+                tourTime: formData.tourTime,
+                notes: formData.notes,
+                submittedAt: serverTimestamp(),
+                status: 'pending',
             });
-
-            const data = await res.json();
-
-            if (res.ok) {
-                toast.success('Inquiry submitted! We will contact you soon.');
-                setFormData({
-                    parentName: '',
-                    email: '',
-                    phone: '',
-                    childName: '',
-                    program: '',
-                    tourDate: '',
-                    notes: ''
-                });
-            } else {
-                toast.error(data.error || 'Something went wrong. Please try again.');
-            }
-        } catch (error) {
-            toast.error('Network error. Please try again.');
+            setSuccess(true);
+        } catch (err) {
+            console.error(err);
+            setErrorMsg('Something went wrong. Please try again or call us directly.');
         } finally {
             setLoading(false);
         }
@@ -79,6 +98,7 @@ const ContactPage = () => {
             <motion.section {...scrollAnimationProps} className="section-padding">
                 <div className="container">
                     <div className={styles.contactGrid}>
+                        {/* Info Cards */}
                         <div className={styles.infoSection}>
                             <div className={styles.infoCard}>
                                 <h3 style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -100,122 +120,146 @@ const ContactPage = () => {
                                 <h3 style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                                     <Mail size={18} /> EMAIL
                                 </h3>
-                                <p>General: rhythmpreschool2026@gmail.com</p>
-                                <p>Support: rhythmpreschool2026@gmail.com</p>
+                                <p>rhythmpreschool2026@gmail.com</p>
+                            </div>
+
+                            <div className={styles.infoCard}>
+                                <h3 style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                                    <Clock size={18} /> VISIT HOURS
+                                </h3>
+                                <p>Mon – Fri: 9:00 AM – 4:00 PM</p>
+                                <p>Saturday: 9:00 AM – 12:00 PM</p>
                             </div>
                         </div>
 
+                        {/* Form */}
                         <div className={styles.formCard}>
                             <h2>Schedule a Visit</h2>
-                            <form onSubmit={handleSubmit}>
-                                <div className={styles.formGroup}>
-                                    <label htmlFor="parentName">Parent Name *</label>
-                                    <input
-                                        type="text"
-                                        id="parentName"
-                                        name="parentName"
-                                        required
-                                        value={formData.parentName}
-                                        onChange={handleChange}
-                                        className={styles.input}
-                                        placeholder="Enter your full name"
-                                    />
-                                </div>
 
-                                <div className={styles.formGroup}>
-                                    <label htmlFor="email">Email Address *</label>
-                                    <input
-                                        type="email"
-                                        id="email"
-                                        name="email"
-                                        required
-                                        value={formData.email}
-                                        onChange={handleChange}
-                                        className={styles.input}
-                                        placeholder="yourname@example.com"
-                                    />
+                            {success ? (
+                                <div className={styles.successBox}>
+                                    <CheckCircle size={52} color="var(--primary)" />
+                                    <h3>Visit Scheduled! 🎉</h3>
+                                    <p>Thank you, <strong>{formData.parentName}</strong>! We&apos;ve received your visit request for <strong>{formData.tourDate}</strong> at <strong>{formData.tourTime}</strong>.</p>
+                                    <p>Our team will call you within 24 hours to confirm your visit.</p>
+                                    <button className={styles.submitBtn} style={{ marginTop: '10px' }} onClick={() => { setSuccess(false); setFormData({ parentName: '', email: '', phone: '', childName: '', childAge: '', program: '', tourDate: '', tourTime: '', notes: '', agreePrivacy: false }); }}>
+                                        Book Another Visit
+                                    </button>
                                 </div>
+                            ) : (
+                                <form onSubmit={handleSubmit}>
+                                    <div className={styles.formRow}>
+                                        <div className={styles.formGroup}>
+                                            <label htmlFor="parentName">Parent / Guardian Name *</label>
+                                            <input
+                                                type="text" id="parentName" name="parentName" required
+                                                value={formData.parentName} onChange={handleChange}
+                                                className={styles.input} placeholder="e.g. Priya Sharma"
+                                            />
+                                        </div>
+                                        <div className={styles.formGroup}>
+                                            <label htmlFor="childName">Child&apos;s Name *</label>
+                                            <input
+                                                type="text" id="childName" name="childName" required
+                                                value={formData.childName} onChange={handleChange}
+                                                className={styles.input} placeholder="e.g. Aarav Sharma"
+                                            />
+                                        </div>
+                                    </div>
 
-                                <div className={styles.formGroup}>
-                                    <label htmlFor="phone">Phone Number *</label>
-                                    <input
-                                        type="tel"
-                                        id="phone"
-                                        name="phone"
-                                        required
-                                        value={formData.phone}
-                                        onChange={handleChange}
-                                        className={styles.input}
-                                        placeholder="e.g. +91 95662 63956"
-                                    />
-                                </div>
+                                    <div className={styles.formRow}>
+                                        <div className={styles.formGroup}>
+                                            <label htmlFor="childAge">Child&apos;s Age *</label>
+                                            <input
+                                                type="text" id="childAge" name="childAge" required
+                                                value={formData.childAge} onChange={handleChange}
+                                                className={styles.input} placeholder="e.g. 3 years"
+                                            />
+                                        </div>
+                                        <div className={styles.formGroup}>
+                                            <label htmlFor="program">Program of Interest *</label>
+                                            <select id="program" name="program" required value={formData.program} onChange={handleChange} className={styles.select}>
+                                                <option value="">Select a Program</option>
+                                                <option value="PLAYGROUP">Playgroup (1.5 – 2.5 Years)</option>
+                                                <option value="NURSERY">Nursery (2.5 – 3.5 Years)</option>
+                                                <option value="JUNIOR_KG">Junior KG (3.5 – 4.5 Years)</option>
+                                                <option value="SENIOR_KG">Senior KG (4.5 – 5.5 Years)</option>
+                                            </select>
+                                        </div>
+                                    </div>
 
-                                <div className={styles.formGroup}>
-                                    <label htmlFor="childName">Child Name *</label>
-                                    <input
-                                        type="text"
-                                        id="childName"
-                                        name="childName"
-                                        required
-                                        value={formData.childName}
-                                        onChange={handleChange}
-                                        className={styles.input}
-                                        placeholder="Child's full name"
-                                    />
-                                </div>
+                                    <div className={styles.formRow}>
+                                        <div className={styles.formGroup}>
+                                            <label htmlFor="phone">Phone Number *</label>
+                                            <input
+                                                type="tel" id="phone" name="phone" required
+                                                value={formData.phone} onChange={handleChange}
+                                                className={styles.input} placeholder="+91 XXXXX XXXXX"
+                                            />
+                                        </div>
+                                        <div className={styles.formGroup}>
+                                            <label htmlFor="email">Email Address</label>
+                                            <input
+                                                type="email" id="email" name="email"
+                                                value={formData.email} onChange={handleChange}
+                                                className={styles.input} placeholder="you@email.com"
+                                            />
+                                        </div>
+                                    </div>
 
-                                <div className={styles.formGroup}>
-                                    <label htmlFor="program">Program of Interest *</label>
-                                    <select
-                                        id="program"
-                                        name="program"
-                                        required
-                                        value={formData.program}
-                                        onChange={handleChange}
-                                        className={styles.select}
-                                    >
-                                        <option value="">Select a Program</option>
-                                        <option value="PLAYGROUP">Play Group (2–3 Years)</option>
-                                        <option value="NURSERY">Nursery (3–4 Years)</option>
-                                        <option value="JUNIOR_KG">Junior KG (4–5 Years)</option>
-                                        <option value="SENIOR_KG">Senior KG (5–6 Years)</option>
-                                    </select>
-                                </div>
+                                    <div className={styles.formRow}>
+                                        <div className={styles.formGroup}>
+                                            <label htmlFor="tourDate">Preferred Visit Date *</label>
+                                            <input
+                                                type="date" id="tourDate" name="tourDate" required min={minDate}
+                                                value={formData.tourDate} onChange={handleChange}
+                                                className={styles.input}
+                                            />
+                                        </div>
+                                        <div className={styles.formGroup}>
+                                            <label htmlFor="tourTime">Preferred Time *</label>
+                                            <select id="tourTime" name="tourTime" required value={formData.tourTime} onChange={handleChange} className={styles.select}>
+                                                <option value="">Select Time</option>
+                                                {timeSlots.map(t => <option key={t} value={t}>{t}</option>)}
+                                            </select>
+                                        </div>
+                                    </div>
 
-                                <div className={styles.formGroup}>
-                                    <label htmlFor="tourDate">Preferred Tour Date *</label>
-                                    <input
-                                        type="date"
-                                        id="tourDate"
-                                        name="tourDate"
-                                        required
-                                        value={formData.tourDate}
-                                        onChange={handleChange}
-                                        className={styles.input}
-                                    />
-                                </div>
+                                    <div className={styles.formGroup}>
+                                        <label htmlFor="notes">Questions / Comments</label>
+                                        <textarea
+                                            id="notes" name="notes" rows={3}
+                                            value={formData.notes} onChange={handleChange}
+                                            className={styles.textarea}
+                                            placeholder="Any specific questions or requirements?"
+                                        />
+                                    </div>
 
-                                <div className={styles.formGroup}>
-                                    <label htmlFor="notes">Questions / Comments</label>
-                                    <textarea
-                                        id="notes"
-                                        name="notes"
-                                        rows={4}
-                                        value={formData.notes}
-                                        onChange={handleChange}
-                                        className={styles.textarea}
-                                        placeholder="Any specific questions or details?"
-                                    />
-                                </div>
+                                    {/* Privacy Checkbox */}
+                                    <div className={styles.privacyCheck}>
+                                        <input
+                                            type="checkbox" id="agreePrivacy" name="agreePrivacy"
+                                            checked={formData.agreePrivacy} onChange={handleChange}
+                                        />
+                                        <label htmlFor="agreePrivacy">
+                                            <Shield size={13} style={{ flexShrink: 0 }} />
+                                            I agree to the{' '}
+                                            <Link href="/privacy-policy" target="_blank" className={styles.policyLink}>
+                                                Privacy Policy
+                                            </Link>
+                                            {' '}and consent to Rhythm PreSchool storing my information.
+                                        </label>
+                                    </div>
 
-                                <button
-                                    type="submit"
-                                    disabled={loading}
-                                    className={styles.submitBtn}
-                                >
-                                    {loading ? 'Submitting...' : 'Submit Inquiry'}
-                                </button>
-                            </form>
+                                    {errorMsg && (
+                                        <div className={styles.errorBox}>{errorMsg}</div>
+                                    )}
+
+                                    <button type="submit" disabled={loading} className={styles.submitBtn}>
+                                        {loading ? 'Submitting...' : 'Schedule My Visit →'}
+                                    </button>
+                                </form>
+                            )}
                         </div>
                     </div>
                 </div>
