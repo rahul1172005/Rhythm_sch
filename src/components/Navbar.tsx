@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from 'react';
 import Link from 'next/link';
-import { Menu, X, User } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import styles from './Navbar.module.css';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
@@ -46,9 +46,7 @@ const Navbar = () => {
                         SCHEDULE VISIT
                     </Link>
 
-                    <Link href="/admin" className={styles.adminIcon} title="Admin Dashboard">
-                        <User size={20} />
-                    </Link>
+
 
                     <button className={styles.mobileToggle} onClick={() => setIsOpen(!isOpen)}>
                         {isOpen ? <X size={24} /> : <Menu size={24} />}
