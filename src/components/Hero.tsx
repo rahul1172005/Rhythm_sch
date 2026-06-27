@@ -34,7 +34,7 @@ const Hero = () => {
 
                 <div className={styles.collageGrid}>
                     <div className={styles.collageLarge}>
-                        <Image src="/images/image copy.png" alt="Children playing with blocks" fill style={{ objectFit: 'cover' }} priority />
+                        <Image src="/images/image copy 3.png" alt="Children playing with blocks" fill style={{ objectFit: 'cover' }} priority />
                         <div className="sticker" style={{ position: 'absolute', top: 20, right: 20 }}>PLAY-BASED LEARNING</div>
                     </div>
 

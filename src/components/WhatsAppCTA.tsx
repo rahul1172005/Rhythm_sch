@@ -35,16 +35,16 @@ const WhatsAppCTA = () => {
                 }}
                 title="Call Us Now"
             >
-                <Image 
-                    src={phoneIcon} 
-                    alt="Call Us" 
-                    width={60} 
-                    height={60} 
-                    style={{ 
+                <Image
+                    src={phoneIcon}
+                    alt="Call Us"
+                    width={60}
+                    height={60}
+                    style={{
                         objectFit: 'contain',
-                        transform: 'scale(0.85) translate(0px, 0px)', // Custom scale and translation axes
+                        transform: 'scale(0.95) translate(0px, 0px)', // Custom scale and translation axes
                         transition: 'transform 0.2s ease-in-out'
-                    }} 
+                    }}
                 />
             </motion.a>
 
@@ -77,16 +77,16 @@ const WhatsAppCTA = () => {
                 }}
                 title="Chat with us on WhatsApp"
             >
-                <Image 
-                    src={whatsappIcon} 
-                    alt="WhatsApp" 
-                    width={60} 
-                    height={60} 
-                    style={{ 
+                <Image
+                    src={whatsappIcon}
+                    alt="WhatsApp"
+                    width={60}
+                    height={60}
+                    style={{
                         objectFit: 'contain',
                         transform: 'scale(0.85) translate(0px, 0px)', // Custom scale and translation axes
                         transition: 'transform 0.2s ease-in-out'
-                    }} 
+                    }}
                 />
             </motion.a>
         </>
