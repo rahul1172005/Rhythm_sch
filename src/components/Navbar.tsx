@@ -48,8 +48,13 @@ const Navbar = () => {
 
 
 
-                    <button className={styles.mobileToggle} onClick={() => setIsOpen(!isOpen)}>
-                        {isOpen ? <X size={24} /> : <Menu size={24} />}
+                    <button
+                        className={styles.mobileToggle}
+                        onClick={() => setIsOpen(!isOpen)}
+                        aria-label={isOpen ? "Close menu" : "Open menu"}
+                        type="button"
+                    >
+                        {isOpen ? <X size={26} /> : <Menu size={26} />}
                     </button>
                 </div>
             </div>
@@ -57,9 +62,10 @@ const Navbar = () => {
             <AnimatePresence>
                 {isOpen && (
                     <motion.div
-                        initial={{ opacity: 0, y: -20 }}
+                        initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0, y: -20 }}
+                        exit={{ opacity: 0, y: -10 }}
+                        transition={{ duration: 0.2 }}
                         className={styles.mobileMenu}
                     >
                         <Link href="/" onClick={() => setIsOpen(false)}>HOME</Link>
@@ -71,7 +77,6 @@ const Navbar = () => {
                         <a
                             href="tel:+919566263956"
                             className={styles.cartBtn}
-                            style={{ width: '100%', marginTop: '10px', textAlign: 'center', display: 'block' }}
                             onClick={() => setIsOpen(false)}
                         >
                             CALL US
@@ -79,7 +84,6 @@ const Navbar = () => {
                         <Link
                             href="/contact"
                             className={styles.cartBtn}
-                            style={{ width: '100%', textAlign: 'center', display: 'block' }}
                             onClick={() => setIsOpen(false)}
                         >
                             SCHEDULE VISIT
