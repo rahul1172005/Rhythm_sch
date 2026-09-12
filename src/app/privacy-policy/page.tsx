@@ -36,7 +36,7 @@ const sections = [
     {
         number: '06',
         title: 'YOUR RIGHTS',
-        content: `You have the right to:\n\n• Access the personal data we hold about you\n• Request correction of inaccurate data\n• Request deletion of your personal data\n• Withdraw your consent at any time\n\nTo exercise any of these rights, contact us at rhythmpreschool2026@gmail.com or call +91 95662 63956.`,
+        content: `You have the right to:\n\n• Access the personal data we hold about you\n• Request correction of inaccurate data\n• Request deletion of your personal data\n• Withdraw your consent at any time\n\nTo exercise any of these rights, contact us at rhythmpreschool.in@gmail.com or call +91 95662 63956.`,
     },
     {
         number: '07',
@@ -56,7 +56,7 @@ const sections = [
     {
         number: '10',
         title: 'CONTACT US',
-        content: `If you have any questions or concerns about this Privacy Policy, please contact us:\n\nRhythm PreSchool\nNo. 507 B, T. H. Road, Melmanambedu, Vellavedu Post, Thiruvallur Dist, Chennai - 600124\n\n📞 +91 95662 63956\n✉️ rhythmpreschool2026@gmail.com`,
+        content: `If you have any questions or concerns about this Privacy Policy, please contact us:\n\nRhythm PreSchool\nNo. 507 B, T. H. Road, Melmanambedu, Vellavedu Post, Thiruvallur Dist, Chennai - 600124\n\n📞 +91 95662 63956\n✉️ rhythmpreschool.in@gmail.com`,
     },
 ];
 

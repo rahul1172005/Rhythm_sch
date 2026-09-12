@@ -46,7 +46,7 @@ const Footer = () => {
                         </p>
                         <p style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
                             <Mail size={16} color="var(--primary)" /> 
-                            <span style={{ fontSize: '14px' }}>rhythmpreschool2026@gmail.com</span>
+                            <span style={{ fontSize: '14px' }}>rhythmpreschool.in@gmail.com</span>
                         </p>
                     </div>
                 </div>

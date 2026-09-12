@@ -30,8 +30,19 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
+# env & secrets
 .env*
+*.local
+*.pem
+*.key
+*.cert
+*.crt
+*.pfx
+*.p12
+credentials*.json
+serviceAccountKey*.json
+service-account*.json
+firebase-adminsdk*.json
 
 # vercel
 .vercel
@@ -47,4 +58,12 @@ next-env.d.ts
 *.db-journal
 *.sqlite
 *.sqlite-journal
+prisma/*.db*
+
+# IDE & OS
+.vscode/
+.idea/
+Thumbs.db
+*.swp
+*.swo
 
