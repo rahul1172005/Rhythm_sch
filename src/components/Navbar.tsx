@@ -35,6 +35,7 @@ const Navbar = () => {
                     <Link href="/programs">PROGRAMS</Link>
                     <Link href="/facilities">FACILITIES</Link>
                     <Link href="/admissions">ADMISSIONS</Link>
+                    <Link href="/blog">BLOG</Link>
                     <Link href="/contact">CONTACT</Link>
                 </div>
 
@@ -73,6 +74,7 @@ const Navbar = () => {
                         <Link href="/programs" onClick={() => setIsOpen(false)}>PROGRAMS</Link>
                         <Link href="/facilities" onClick={() => setIsOpen(false)}>FACILITIES</Link>
                         <Link href="/admissions" onClick={() => setIsOpen(false)}>ADMISSIONS</Link>
+                        <Link href="/blog" onClick={() => setIsOpen(false)}>BLOG</Link>
                         <Link href="/contact" onClick={() => setIsOpen(false)}>CONTACT</Link>
                         <a
                             href="tel:+919566263956"

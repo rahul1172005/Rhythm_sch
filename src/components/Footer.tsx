@@ -27,6 +27,7 @@ const Footer = () => {
                             <Link href="/programs">PROGRAMS</Link>
                             <Link href="/facilities">FACILITIES</Link>
                             <Link href="/admissions">ADMISSIONS</Link>
+                            <Link href="/blog">BLOG & INSIGHTS</Link>
                             <Link href="/contact">CONTACT</Link>
                             <Link href="/contact">SCHEDULE A VISIT</Link>
                             <Link href="/privacy-policy">PRIVACY POLICY</Link>
